@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="tokyo-night">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>无人机综合防控系统</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/tokyo-night.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+/* ===== 基础增强 ===== */
+.slide{position:relative;padding:44px 64px}
+.fx-layer{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.fx-layer canvas{position:absolute}
+.slide>*:not(.fx-layer){position:relative;z-index:1}
+
+/* 标签 */
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:10px;font-weight:500;background:var(--surface-2);color:var(--text-2);border:1px solid var(--border)}
+.tag.a{background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+.tag.g{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good);border-color:color-mix(in srgb,var(--good) 30%,transparent)}
+.tag.w{background:color-mix(in srgb,var(--warn) 15%,transparent);color:var(--warn);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+
+/* 指标 */
+.metrics{display:flex;gap:14px;flex-wrap:wrap}
+.metric{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center;flex:1;min-width:80px}
+.metric .n{font-size:32px;font-weight:800;line-height:1;color:var(--accent)}
+.metric .n.g{color:var(--good)}
+.metric .l{font-size:10px;color:var(--text-3);margin-top:3px}
+
+/* 表格 */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{text-align:left;padding:7px 10px;font-weight:600;color:var(--text-2);border-bottom:1px solid var(--border);background:var(--surface-2);font-size:11px}
+.tbl td{padding:7px 10px;border-bottom:1px solid var(--border)}
+
+/* 流水线 */
+.pipe{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center}
+.pipe .n{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 14px;font-size:11px;text-align:center;flex:1;min-width:55px}
+.pipe .a{color:var(--text-3);font-size:13px;flex-shrink:0}
+
+/* 分层 */
+.layers{display:flex;flex-direction:column;gap:8px}
+.layer{border-radius:var(--radius-sm);padding:10px 16px;text-align:center}
+.layer .lt{font-size:13px;font-weight:600}
+.layer .ld{font-size:10px;color:var(--text-3);margin-top:2px}
+.layer .ltg{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:5px}
+
+/* 代码块 */
+.code{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;font-family:var(--font-mono);font-size:9px;line-height:1.6;overflow-x:auto;white-space:pre;text-align:left}
+.code .c{color:var(--text-3)!important}
+.code .k{color:var(--accent)!important}
+.code .s{color:var(--good)!important}
+.code .n{color:var(--accent-3)!important}
+
+/* 事件框 */
+.ev{background:var(--surface-2);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:7px 12px;font-family:var(--font-mono);font-size:9px;margin-top:6px;text-align:left;line-height:1.7}
+.ev .kw{color:var(--accent-3)}
+
+/* 路线图 */
+.rm{display:flex;flex-direction:column;gap:8px}
+.ri{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;padding-left:26px;position:relative}
+.ri::before{content:'';position:absolute;left:-5px;top:50%;width:10px;height:10px;border-radius:50%;background:var(--border);transform:translateY(-50%)}
+.ri.d::before{background:var(--good);box-shadow:0 0 6px var(--good)}
+.ri .rt{font-size:13px;font-weight:600}
+.ri .rd{font-size:10px;color:var(--text-3);margin-top:1px}
+
+/* 提示 */
+.hint{display:flex;gap:10px;justify-content:center;margin-top:36px;font-size:10px;color:var(--text-3)}
+.hint span{padding:2px 8px;border-radius:999px;border:1px solid var(--border)}
+
+/* 双栏内容块 */
+.col-box{display:flex;flex-direction:column;gap:6px}
+.col-box .cb-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px}
+.col-box .cb-item .cb-title{font-size:12px;font-weight:600}
+.col-box .cb-item .cb-desc{font-size:10px;color:var(--text-3);margin-top:1px}
+
+/* glow 文字 */
+.glow{text-shadow:0 0 20px color-mix(in srgb,var(--accent) 40%,transparent),0 0 40px color-mix(in srgb,var(--accent) 20%,transparent)}
+</style>
+</head>
+<body data-themes="tokyo-night,cyberpunk-neon,aurora,catppuccin-mocha,nord,dracula" data-theme-base="assets/themes/">
+<div class="deck">
+
+  <!-- ========== 1. 封面 ========== -->
+  <section class="slide" data-title="Cover">
+    <div class="fx-layer"><div data-fx="starfield" style="width:100%;height:100%"></div></div>
+    <div class="deck-header"><span class="eyebrow">UAV Integrated Defense System · 2026</span><span class="eyebrow">confidential</span></div>
+    <div style="text-align:center;padding-top:80px">
+      <p class="kicker anim-fade-up" style="letter-spacing:6px">UAV INTEGRATED DEFENSE SYSTEM</p>
+      <h1 class="h1 anim-rise-in" style="font-size:60px;line-height:1.2;margin-top:14px">
+        🛡️ 无人机<br><span class="gradient-text glow">综合防控系统</span>
+      </h1>
+      <p class="lede anim-fade-up" style="max-width:460px;margin:20px auto;font-size:13px">
+        探测预警 · 识别追踪 · 空域管理 · 拦阻截击
+      </p>
+      <div class="hint">
+        <span>⬅️ ➡️ 翻页</span>
+        <span>T 换主题</span>
+        <span>O 概览</span>
+        <span>A 动效</span>
+      </div>
+    </div>
+    <div class="deck-footer" style="position:static;margin-top:60px">
+      <span class="dim2">html-ppt · tokyo-night</span>
+      <span class="slide-number" data-current="1" data-total="12"></span>
+    </div>
+    <div class="notes">欢迎来到无人机综合防控系统演示。本系统涵盖探测预警、识别追踪、空域管理和拦阻截击四大核心能力。请多提意见。</div>
+  </section>
+
+  <!-- ========== 2. 背景介绍 ========== -->
+  <section class="slide" data-title="背景介绍">
+    <p class="kicker anim-fade-up">Background</p>
+    <h2 class="h2 anim-fade-up">背景介绍</h2>
+    <div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+      <div class="card card-hover">
+        <div style="font-size:28px">📈</div>
+        <h4>无人机爆发式增长</h4>
+        <p class="dim" style="font-size:11px">消费级与工业级无人机保有量持续攀升，低空空域活动密度大幅增加</p>
+        <div class="tags mt-s">
+          <span class="tag a">500万+</span>
+          <span class="tag">年增35%</span>
+        </div>
+      </div>
+      <div class="card card-hover">
+        <div style="font-size:28px">⚠️</div>
+        <h4>安全威胁日益突出</h4>
+        <p class="dim" style="font-size:11px">黑飞、窥探、走私、恐怖袭击等无人机滥用事件频发，传统安防手段难以应对</p>
+        <div class="tags mt-s"><span class="tag w">机场干扰</span><span class="tag w">隐私侵犯</span><span class="tag w">走私运毒</span></div>
+      </div>
+      <div class="card card-hover">
+        <div style="font-size:28px">⚖️</div>
+        <h4>法规监管滞后</h4>
+        <p class="dim" style="font-size:11px">低空空域管理法规尚不完善，"管"与"放"之间的平衡难以把握</p>
+        <div class="tags mt-s"><span class="tag">UAM</span><span class="tag">UTM</span></div>
+      </div>
+      <div class="card card-hover">
+        <div style="font-size:28px">🔬</div>
+        <h4>技术手段亟待升级</h4>
+        <p class="dim" style="font-size:11px">单一传感器难以覆盖全场景，需构建多源融合的综合防控体系</p>
+        <div class="tags mt-s"><span class="tag a">多传感器融合</span><span class="tag">AI识别</span></div>
+      </div>
+    </div>
+    <div class="notes">无人机市场快速增长带来了低空空域管理的新挑战。黑飞、窥探、走私等问题频发，传统安防手段难以应对。法规滞后和技术升级需求并存。</div>
+  </section>
+
+  <!-- ========== 3. 需求分析 ========== -->
+  <section class="slide" data-title="需求分析">
+    <p class="kicker anim-fade-up">Requirements</p>
+    <h2 class="h2 anim-fade-up">需求分析</h2>
+    <div class="grid g2 mt-l" style="gap:20px">
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px;margin-bottom:8px">🎯 核心需求</h4>
+          <div class="col-box" style="gap:6px">
+            <div class="cb-item"><div class="cb-title">🔍 全域探测覆盖</div><div class="cb-desc">雷达、光电、声学、射频多手段协同，无死角覆盖</div></div>
+            <div class="cb-item"><div class="cb-title">🎯 精准识别定位</div><div class="cb-desc">目标准确识别，厘米级定位，区分合法/非法目标</div></div>
+            <div class="cb-item"><div class="cb-title">⚡ 实时快速响应</div><div class="cb-desc">从发现到处置，全流程分钟级响应</div></div>
+            <div class="cb-item"><div class="cb-title">🔄 分层分级处置</div><div class="cb-desc">预警 -> 确认 -> 跟踪 -> 处置，逐级升级响应</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px;margin-bottom:8px">📋 技术指标</h4>
+          <div class="col-box" style="gap:6px">
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">探测距离 ≥ 20 km</div><div class="cb-desc">相控阵雷达骨干覆盖</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">多目标跟踪 ≥ 100 批</div><div class="cb-desc">SORT/卡尔曼滤波并行跟踪</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">识别准确率 ≥ 95%</div><div class="cb-desc">YOLOv8 + 双波段光电识别</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">处置响应 ≤ 60 s</div><div class="cb-desc">从确认到反制全链路快速响应</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">核心需求包括全域探测、精准识别、快速响应和分级处置。技术指标明确了探测距离、跟踪数量、识别准确率和响应时间等具体要求。</div>
+  </section>
+
+  <!-- ========== 4. 总体思路 ========== -->
+  <section class="slide" data-title="总体思路">
+    <p class="kicker anim-fade-up">Strategy</p>
+    <h2 class="h2 anim-fade-up">总体思路</h2>
+    <p class="lede" style="font-size:14px;max-width:600px">
+      构建<strong style="color:var(--accent)">四层递进式</strong>防控体系：<strong>探测 → 识别 → 管理 → 处置</strong>，形成完整闭环。
+    </p>
+    <div class="pipe mt-l anim-fade-up">
+      <div class="n" style="border-color:color-mix(in srgb,var(--accent) 50%,transparent);flex:2">📡 探测预警<br><span style="font-size:9px;color:var(--text-3)">雷达扫描 → AI识别 → 排序预警</span></div>
+      <div class="a">→</div>
+      <div class="n" style="border-color:color-mix(in srgb,var(--accent-2) 50%,transparent);flex:2">🎯 识别追踪<br><span style="font-size:9px;color:var(--text-3)">光电双波段 → 图像识别 → 轨迹跟踪</span></div>
+      <div class="a">→</div>
+      <div class="n" style="border-color:color-mix(in srgb,var(--good) 50%,transparent);flex:2">📋 空域管理<br><span style="font-size:9px;color:var(--text-3)">身份识别 → 合法验证 → 分区标注</span></div>
+      <div class="a">→</div>
+      <div class="n" style="border-color:color-mix(in srgb,var(--warn) 50%,transparent);flex:2">⚔️ 拦阻截击<br><span style="font-size:9px;color:var(--text-3)">软杀伤 → 硬杀伤 → 综合处置</span></div>
+    </div>
+    <div class="grid g4 mt-l anim-stagger-list" data-anim-target>
+      <div class="card card-hover" style="padding:12px;text-align:center;border-top:3px solid var(--accent)">
+        <div style="font-size:24px">📡</div>
+        <h4 style="font-size:13px">远域感知层</h4>
+        <p class="dim" style="font-size:10px">广域扫描<br>目标发现</p>
+      </div>
+      <div class="card card-hover" style="padding:12px;text-align:center;border-top:3px solid var(--accent-2)">
+        <div style="font-size:24px">🎯</div>
+        <h4 style="font-size:13px">中域确认层</h4>
+        <p class="dim" style="font-size:10px">精准识别<br>持续跟踪</p>
+      </div>
+      <div class="card card-hover" style="padding:12px;text-align:center;border-top:3px solid var(--good)">
+        <div style="font-size:24px">📋</div>
+        <h4 style="font-size:13px">近域管理层</h4>
+        <p class="dim" style="font-size:10px">身份校验<br>空域调度</p>
+      </div>
+      <div class="card card-hover" style="padding:12px;text-align:center;border-top:3px solid var(--warn)">
+        <div style="font-size:24px">⚔️</div>
+        <h4 style="font-size:13px">核心处置层</h4>
+        <p class="dim" style="font-size:10px">软硬杀伤<br>综合处置</p>
+      </div>
+    </div>
+    <div class="notes">四层递进式防控体系：先探测发现，再识别确认，然后验证身份管理空域，最后对非法目标实施处置。形成"发现-确认-管理-处置"完整闭环。</div>
+  </section>
+
+  <!-- ========== 5. 总体架构 ========== -->
+  <section class="slide" data-title="总体架构">
+    <p class="kicker anim-fade-up">Architecture</p>
+    <h2 class="h2 anim-fade-up">系统总体架构</h2>
+    <div class="layers mt-l anim-stagger-list" data-anim-target>
+      <div class="layer" style="background:color-mix(in srgb,var(--accent) 14%,transparent);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent)">
+        <div class="lt">🖥️ 应用展示层</div>
+        <div class="ld">态势大屏 · 指挥控制台 · 移动终端 · 报告系统</div>
+      </div>
+      <div class="layer" style="background:color-mix(in srgb,var(--accent-2) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent-2) 22%,transparent)">
+        <div class="lt">⚙️ 业务应用层</div>
+        <div class="ld">探测预警模块 · 识别追踪模块 · 空域管理模块 · 反制处置模块</div>
+      </div>
+      <div class="layer" style="background:color-mix(in srgb,var(--accent-3) 10%,transparent);border:1px solid color-mix(in srgb,var(--accent-3) 20%,transparent)">
+        <div class="lt">🧮 数据处理层 · 多源信息融合引擎</div>
+        <div class="ld">雷达数据 | 光电图像 | 射频信号 | 声学信号 → 时空对齐 · 特征提取 · 数据关联 · 融合判决</div>
+      </div>
+      <div class="layer" style="background:color-mix(in srgb,var(--good) 10%,transparent);border:1px solid color-mix(in srgb,var(--good) 20%,transparent)">
+        <div class="lt">📡 传感器设备层 + 反制设备层</div>
+        <div class="ltg">
+          <span class="tag a">相控阵雷达 10.5GHz</span>
+          <span class="tag a">光电/红外双模转塔</span>
+          <span class="tag">声学阵列</span>
+          <span class="tag">射频嗅探</span>
+          <span class="tag w">干扰设备</span>
+          <span class="tag w">激光器</span>
+          <span class="tag w">拦截无人机</span>
+        </div>
+      </div>
+    </div>
+    <div class="notes">四层架构：底层传感器和反制硬件、数据融合引擎、业务模块、前端展示。每层通过标准化接口互联。</div>
+  </section>
+
+  <!-- ========== 6. 探测预警 ========== -->
+  <section class="slide" data-title="探测预警">
+    <p class="kicker anim-fade-up">Subsystem 01</p>
+    <h2 class="h2 anim-fade-up">无人机探测预警</h2>
+    <div class="grid g2 mt-l" style="gap:16px">
+      <div>
+        <div class="anim-fade-up">
+          <h4 style="font-size:14px">📡 相控阵雷达扫描</h4>
+          <div class="code" style="font-size:8px;margin-top:6px">
+<span class="c"># 雷达参数：10.5 GHz 相控阵体制</span>
+雷达类型:  脉冲线性调频 (PLFM) 相控阵
+工作频率:  10.5 GHz (X 波段)
+探测距离:  3 km / 20 km (双版本可选)
+波束扫描:  电子 ±45° + 机械 360°
+信号处理:  FPGA (XC7A50T) 脉冲压缩 / 多普勒 FFT
+检测算法:  CFAR + MTI 动目标检测
+分辨率:    1.5 m 距离分辨率
+输出功率:  1W×16 (近程) / 10W×16 GaN (远程)
+          </div>
+        </div>
+        <div class="anim-fade-up" style="margin-top:10px">
+          <div class="tags">
+            <span class="tag a">1024 通道</span>
+            <span class="tag a">电子扫描</span>
+            <span class="tag">相参处理</span>
+            <span class="tag">多普勒滤波</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🧠 AI 识别预警</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title">雷达特征提取</div><div class="cb-desc">RCS序列、多普勒特征、微多普勒调制</div></div>
+            <div class="cb-item"><div class="cb-title">AI 分类识别</div><div class="cb-desc">深度学习模型判别目标类型（鸟/无人机/直升机）</div></div>
+            <div class="cb-item"><div class="cb-title">威胁排序</div><div class="cb-desc">基于速度、高度、航向、RCS 综合计算威胁概率</div></div>
+            <div class="cb-item"><div class="cb-title">多级预警</div><div class="cb-desc">蓝色 → 黄色 → 橙色 → 红色 四级预警体系</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pipe mt-s anim-fade-up">
+      <div class="n">雷达扫描</div><div class="a">→</div>
+      <div class="n">特征提取</div><div class="a">→</div>
+      <div class="n">AI 识别</div><div class="a">→</div>
+      <div class="n">威胁排序</div><div class="a">→</div>
+      <div class="n">预警发布</div>
+    </div>
+    <div class="notes">使用相控阵雷达对管辖空域进行扫描，获取目标雷达特征后送入AI模型进行识别判断。根据可能性进行排序和预警，形成从扫描到处置的完整预警链。雷达基于开源相控阵雷达技术，10.5GHz X波段，FPGA做信号处理。</div>
+  </section>
+
+  <!-- ========== 7. 识别追踪 ========== -->
+  <section class="slide" data-title="识别追踪">
+    <p class="kicker anim-fade-up">Subsystem 02</p>
+    <h2 class="h2 anim-fade-up">无人机识别与追踪</h2>
+    <div class="grid g2 mt-l" style="gap:16px">
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🎥 光电系统 · 双波段</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">🔴 红外通道 (LWIR)</div><div class="cb-desc">远距离被动探测，昼夜工作，识别热信号特征</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent-2)">💡 可见光通道 (VIS)</div><div class="cb-desc">高清变焦成像，细节捕捉，型号识别</div></div>
+            <div class="cb-item"><div class="cb-title">🎯 光学变焦跟踪</div><div class="cb-desc">根据雷达引导，自动变焦锁定重点空域目标</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🧬 图像识别追踪</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title">YOLOv8 目标检测</div><div class="cb-desc">实时检测红外/可见光图像中的无人机目标</div></div>
+            <div class="cb-item"><div class="cb-title">SORT 多目标跟踪</div><div class="cb-desc">匈牙利关联 + 卡尔曼滤波，稳定持续追踪</div></div>
+            <div class="cb-item"><div class="cb-title">型号识别</div><div class="cb-desc">基于外形特征、纹理的深度学习型号分类</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pipe mt-s anim-fade-up">
+      <div class="n">雷达引导</div><div class="a">→</div>
+      <div class="n">光电变焦</div><div class="a">→</div>
+      <div class="n">双波段成像</div><div class="a">→</div>
+      <div class="n">YOLO 识别</div><div class="a">→</div>
+      <div class="n">SORT 跟踪</div><div class="a">→</div>
+      <div class="n">轨迹生成</div>
+    </div>
+    <div class="tags mt-s" style="justify-content:center">
+      <span class="tag a">双波段光电转塔</span>
+      <span class="tag a">红外 LWIR 8-14μm</span>
+      <span class="tag a">可见光 HD 变焦</span>
+      <span class="tag">YOLOv8</span>
+      <span class="tag">SORT+卡尔曼</span>
+    </div>
+    <div class="notes">采用红外+可见光双波段光电系统，根据雷达反馈的方位和距离，通过光学变焦锁控目标。YOLOv8进行图像识别，SORT算法跟踪形成轨迹。同时识别无人机型号并持续稳定追踪。</div>
+  </section>
+
+  <!-- ========== 8. 空域管理 ========== -->
+  <section class="slide" data-title="空域管理">
+    <p class="kicker anim-fade-up">Subsystem 03</p>
+    <h2 class="h2 anim-fade-up">无人机空域管理系统</h2>
+    <div class="grid g2 mt-l" style="gap:16px">
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🆔 身份识别体系</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title" style="color:var(--good)">✅ 合法无人机</div><div class="cb-desc">已注册登记、申报飞行计划、开启 ADS-B / Remote ID</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--warn)">❌ 非法无人机</div><div class="cb-desc">无注册信息、未申报、关闭 / 伪造身份标识</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">⚠️ 可疑目标</div><div class="cb-desc">身份不明、飞行行为异常（接近敏感区域）</div></div>
+          </div>
+        </div>
+        <div class="anim-fade-up" style="margin-top:10px">
+          <div class="tags">
+            <span class="tag g">ADS-B</span>
+            <span class="tag g">Remote ID</span>
+            <span class="tag">4G/5G 信令</span>
+            <span class="tag">无人机云平台</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🗺️ 低空空管调度</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title">轨迹比对验证</div><div class="cb-desc">探测轨迹 vs 申报计划，一致性校验</div></div>
+            <div class="cb-item"><div class="cb-title">空域分区标注</div><div class="cb-desc">禁飞区、限制区、放飞区的动态标注</div></div>
+            <div class="cb-item"><div class="cb-title">威胁分发</div><div class="cb-desc">经空管确认的非法目标 → 分发威胁信息至处置单元</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pipe mt-s anim-fade-up">
+      <div class="n">目标出现</div><div class="a">→</div>
+      <div class="n">身份查询</div><div class="a">→</div>
+      <div class="n">轨迹比对</div><div class="a">→</div>
+      <div class="n n" style="color:var(--good);border-color:color-mix(in srgb,var(--good) 50%,transparent)">✅ 合法 ← 正常飞行</div>
+      <div class="a">/</div>
+      <div class="n" style="color:var(--warn);border-color:color-mix(in srgb,var(--warn) 50%,transparent)">❌ 非法 → 标注分发</div>
+    </div>
+    <div class="notes">在禁止合法飞行的前提下，通过身份识别系统验证无人机合法性。合法无人机比对轨迹和申报计划，非法或无身份无人机经空管确认后标注分发威胁信息。</div>
+  </section>
+
+  <!-- ========== 9. 拦阻截击 ========== -->
+  <section class="slide" data-title="拦阻截击">
+    <div class="fx-layer"><div data-fx="neural-net" style="width:100%;height:100%;opacity:0.08"></div></div>
+    <p class="kicker anim-fade-up">Subsystem 04</p>
+    <h2 class="h2 anim-fade-up">无人机拦阻截击</h2>
+    <div class="grid g2 mt-l" style="gap:16px">
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🟢 软杀伤手段</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">📡 通信干扰</div><div class="cb-desc">压制图传/遥控链路，触发失控返航或迫降</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">🛰️ GNSS 诱骗</div><div class="cb-desc">伪造卫星信号，诱导偏离航线至安全区域</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--accent)">🔊 声波干扰</div><div class="cb-desc">特定频率谐振干扰陀螺仪，短距生效</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="anim-stagger-list" data-anim-target>
+          <h4 style="font-size:14px">🔴 硬杀伤手段</h4>
+          <div class="col-box" style="gap:5px">
+            <div class="cb-item"><div class="cb-title" style="color:var(--warn)">💡 高能激光</div><div class="cb-desc">聚焦烧蚀光电传感器或结构薄弱点</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--warn)">🚀 动能拦截器</div><div class="cb-desc">精准撞击或破片杀伤</div></div>
+            <div class="cb-item"><div class="cb-title" style="color:var(--warn)">🛸 无人机反无人机</div><div class="cb-desc">★ 未来重点方向：大无人机抛网捕获 / 拦截 FPV 撞击</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4 style="font-size:13px;margin-top:8px">🎯 无人机反无人机 · 拦截方案</h4>
+    <div class="pipe mt-s anim-fade-up">
+      <div class="n">探测锁定</div><div class="a">→</div>
+      <div class="n">拦截器发射</div><div class="a">→</div>
+      <div class="n">轨迹追踪</div><div class="a">→</div>
+      <div class="n">航迹规划</div><div class="a">→</div>
+      <div class="n">引导撞击/捕获</div><div class="a">→</div>
+      <div class="n">效果评估</div>
+    </div>
+    <div class="tags mt-s" style="justify-content:center">
+      <span class="tag a">大无人机抛网拦截</span>
+      <span class="tag w">拦截 FPV 对撞</span>
+      <span class="tag">轨迹重合</span>
+      <span class="tag">精准航迹规划</span>
+    </div>
+    <div class="notes">软杀伤通过干扰通信和定位尝试迫降或劝返。硬杀伤中"无人机反无人机"是未来重点方向。大无人机可抛洒网绳捕获小型无人机；专用拦截FPV通过轨迹重合对撞的方式击落目标，需要形成对拦截目标的精准追踪以及自身航迹的精确规划和引导。</div>
+  </section>
+
+  <!-- ========== 10. 分系统设计 ========== -->
+  <section class="slide" data-title="分系统设计">
+    <p class="kicker anim-fade-up">Subsystem Design</p>
+    <h2 class="h2 anim-fade-up">分系统 · 设备 · 关键技术</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card card-hover" style="padding:14px">
+        <h4 style="font-size:14px;color:var(--accent)">📡 探测预警分系统</h4>
+        <p class="dim" style="font-size:10px;margin-top:6px"><strong>关键设备：</strong>相控阵雷达 X 波段 · 声学阵列 · 射频扫描仪</p>
+        <p class="dim" style="font-size:10px"><strong>关键技术：</strong>PLFM 脉冲压缩 · CFAR/MTI 检测 · AI 雷达特征识别 · FPGA 实时信号处理</p>
+        <div class="tags mt-s"><span class="tag a">相控阵</span><span class="tag">CFAR</span><span class="tag">FPGA</span></div>
+      </div>
+      <div class="card card-hover" style="padding:14px">
+        <h4 style="font-size:14px;color:var(--accent-2)">🎯 识别追踪分系统</h4>
+        <p class="dim" style="font-size:10px;margin-top:6px"><strong>关键设备：</strong>光电双波段转塔 · 红外热像仪 · 高清可见光摄像机</p>
+        <p class="dim" style="font-size:10px"><strong>关键技术：</strong>双波段图像融合 · YOLOv8 目标检测 · SORT/卡尔曼跟踪 · 深度型号分类</p>
+        <div class="tags mt-s"><span class="tag a">双波段</span><span class="tag">YOLOv8</span><span class="tag">SORT</span></div>
+      </div>
+      <div class="card card-hover" style="padding:14px">
+        <h4 style="font-size:14px;color:var(--good)">📋 空域管理分系统</h4>
+        <p class="dim" style="font-size:10px;margin-top:6px"><strong>关键设备：</strong>ADS-B 接收机 · 无人机云平台 · 4G/5G 信令监测</p>
+        <p class="dim" style="font-size:10px"><strong>关键技术：</strong>身份认证 · 轨迹比对 · 低空空域数字化 · 威胁评估分发</p>
+        <div class="tags mt-s"><span class="tag g">ADS-B</span><span class="tag">空域建模</span></div>
+      </div>
+      <div class="card card-hover" style="padding:14px">
+        <h4 style="font-size:14px;color:var(--warn)">⚔️ 拦阻截击分系统</h4>
+        <p class="dim" style="font-size:10px;margin-top:6px"><strong>关键设备：</strong>干扰设备 · 高能激光器 · 拦截无人机 · 抛网装置</p>
+        <p class="dim" style="font-size:10px"><strong>关键技术：</strong>通信/GNSS 干扰 · 激光瞄准 · FPV 拦截航迹规划 · 对撞轨迹引导</p>
+        <div class="tags mt-s"><span class="tag w">软杀伤</span><span class="tag w">硬杀伤</span></div>
+      </div>
+      <div class="card card-hover" style="padding:14px">
+        <h4 style="font-size:14px;color:var(--accent)">🖥️ 信息处理分系统</h4>
+        <p class="dim" style="font-size:10px;margin-top:6px"><strong>关键设备：</strong>融合服务器 · AI 加速卡 · 态势显示终端</p>
+        <p class="dim" style="font-size:10px"><strong>关键技术：</strong>多源数据时空对齐 · 决策融合算法 · 态势可视化 · 全域数据总线</p>
+        <div class="tags mt-s"><span class="tag a">数据融合</span><span class="tag">态势显示</span></div>
+      </div>
+      <div class="card card-hover" style="padding:14px">
+        <h4 style="font-size:14px;color:var(--accent-2)">🔌 通信网络分系统</h4>
+        <p class="dim" style="font-size:10px;margin-top:6px"><strong>关键设备：</strong>数据链终端 · 光纤网络 · 加密设备</p>
+        <p class="dim" style="font-size:10px"><strong>关键技术：</strong>低延迟数据链 · 抗干扰通信 · 安全加密 · 多节点协同</p>
+        <div class="tags mt-s"><span class="tag">数据链</span><span class="tag">加密</span></div>
+      </div>
+    </div>
+    <div class="notes">六大分系统协同工作：探测预警、识别追踪、空域管理、拦阻截击、信息处理、通信网络。每个分系统都有对应关键设备和核心支撑技术。</div>
+  </section>
+
+  <!-- ========== 11. 预期效果 ========== -->
+  <section class="slide" data-title="预期效果">
+    <p class="kicker anim-fade-up">Expected Results</p>
+    <h2 class="h2 anim-fade-up">预期效果展示</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card" style="padding:16px;text-align:center">
+        <div style="font-size:32px">🌐</div>
+        <h4 style="font-size:14px">全空域态势感知</h4>
+        <p class="dim" style="font-size:10px;margin-top:4px">管辖空域内所有飞行目标实时显示，红黄蓝三级标注</p>
+        <div class="metric" style="margin-top:10px;padding:8px;min-width:auto">
+          <div class="n" style="font-size:28px">20 km</div>
+          <div class="l">全向覆盖半径</div>
+        </div>
+      </div>
+      <div class="card" style="padding:16px;text-align:center">
+        <div style="font-size:32px">🎯</div>
+        <h4 style="font-size:14px">实时多目标跟踪</h4>
+        <p class="dim" style="font-size:10px;margin-top:4px">并行跟踪 >100 批目标，轨迹预测与异常告警</p>
+        <div class="metric" style="margin-top:10px;padding:8px;min-width:auto">
+          <div class="n" style="font-size:28px">&gt;100</div>
+          <div class="l">并行跟踪目标</div>
+        </div>
+      </div>
+      <div class="card" style="padding:16px;text-align:center">
+        <div style="font-size:32px">⚡</div>
+        <h4 style="font-size:14px">自动处置闭环</h4>
+        <p class="dim" style="font-size:10px;margin-top:4px">从探测到拦截全自动链路，人工确认介入</p>
+        <div class="metric" style="margin-top:10px;padding:8px;min-width:auto">
+          <div class="n g" style="font-size:28px">&lt;60 s</div>
+          <div class="l">全链路响应</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+      <div class="card card-soft" style="padding:12px">
+        <h4 style="font-size:12px">📊 系统效能指标</h4>
+        <div style="font-size:10px;color:var(--text-3);line-height:2;margin-top:4px">
+          ✅ 探测概率 &gt; 98%（10 km 内）<br>
+          ✅ 识别准确率 &gt; 95%（分类 + 型号）<br>
+          ✅ 跟踪稳定性 &gt; 99%（无间断跟踪）<br>
+          ✅ 拦截成功率 &gt; 85%（软硬协同）
+        </div>
+      </div>
+      <div class="card card-soft" style="padding:12px">
+        <h4 style="font-size:12px">🔭 典型应用场景</h4>
+        <div style="font-size:10px;color:var(--text-3);line-height:2;margin-top:4px">
+          🏭 重点设施防护（机场、核电站、政府机构）<br>
+          🎪 大型活动安保（体育赛事、政治会议）<br>
+          🏔️ 边境/海岸巡逻<br>
+          🏙️ 城市低空空域管理
+        </div>
+      </div>
+    </div>
+    <div class="notes">预期实现全空域覆盖、百级目标并行跟踪、分钟级全链路响应。探测概率、识别准确率、跟踪稳定性、拦截成功率均达到实战级指标。</div>
+  </section>
+
+  <!-- ========== 12. 总结 ========== -->
+  <section class="slide" data-title="总结">
+    <div class="fx-layer"><div data-fx="confetti-cannon" style="width:100%;height:100%"></div></div>
+    <div style="position:relative;z-index:1;text-align:center;padding-top:50px">
+      <p class="kicker">Summary</p>
+      <h1 class="h1 gradient-text glow" style="font-size:52px">总结</h1>
+      <div class="grid g2 anim-stagger-list" data-anim-target style="margin:20px auto;max-width:500px;text-align:left">
+        <div class="card card-soft" style="padding:10px;font-size:12px">📡 <strong>探得早</strong> — 20km 远域雷达扫描 + AI 预警</div>
+        <div class="card card-soft" style="padding:10px;font-size:12px">🎯 <strong>看得清</strong> — 双波段光电 + 深度学习识别</div>
+        <div class="card card-soft" style="padding:10px;font-size:12px">📋 <strong>管得住</strong> — 空域身份验证 + 合法/非法区分</div>
+        <div class="card card-soft" style="padding:10px;font-size:12px">⚔️ <strong>打得准</strong> — 软硬协同 + 智能拦截</div>
+      </div>
+      <hr style="border-color:var(--border);width:25%;margin:20px auto">
+      <p style="font-size:11px;color:var(--text-3)">
+        相控阵雷达 · 光电双波段 · YOLOv8 · SORT/卡尔曼 · 数据融合 · 软硬反制<br>
+        html-ppt · 36 themes · 20 FX · 31 layouts
+      </p>
+    </div>
+    <div class="notes">总结四大核心能力：远域探测、精准识别、空域管理、拦截处置。从传感器到反制的全链路闭环系统。感谢关注。</div>
+  </section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>
