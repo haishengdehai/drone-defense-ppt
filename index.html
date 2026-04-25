@@ -115,7 +115,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="sub" style="font-size:.92rem;margin-bottom:18px">全域感知 · 智能识别 · 精准反制</div>
 <div style="display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
 <div style="text-align:center"><div class="kpi">5–15km</div><div style="font-size:.72rem;color:var(--fg2);margin-top:2px">探测距离</div></div>
-<div style="text-align:center"><div class="kpi">\u226595%</div><div style="font-size:.72rem;color:var(--fg2);margin-top:2px">识别准确率</div></div>
+<div style="text-align:center"><div class="kpi">≥95%</div><div style="font-size:.72rem;color:var(--fg2);margin-top:2px">识别准确率</div></div>
 <div style="text-align:center"><div class="kpi">&lt;60s</div><div style="font-size:.72rem;color:var(--fg2);margin-top:2px">全流程响应</div></div>
 <div style="text-align:center"><div class="kpi kpi-o">4+1</div><div style="font-size:.72rem;color:var(--fg2);margin-top:2px">子系统架构</div></div>
 </div>
@@ -127,16 +127,16 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="sub">低空安全威胁态势与防御需求</div>
 <div class="g3" style="flex:1">
 <div class="hd-box"><div class="hd-num" style="font-size:1.8rem;opacity:.2;position:absolute;top:2px;right:6px">01</div>
-<div class="ct" style="margin-bottom:6px">\U0001f6f8 低空安全威胁态势</div>
+<div class="ct" style="margin-bottom:6px">🛸 低空安全威胁态势</div>
 <ul class="ul ul-d">
 <li>消费级无人机保有量超 <span class="hl">300 万架</span>，年增长率 &gt;30%</li>
-<li>「低慢小」RCS <span class="hl">0.001–0.1m\u00b2</span>，探测难度极大</li>
+<li>「低慢小」RCS <span class="hl">0.001–0.1m²</span>，探测难度极大</li>
 <li>高度 &lt;1000m，速度 10–150km/h，机动灵活</li>
 <li>传统防空雷达虚警率高，城市多径反射</li>
 <li>集群攻击（Swarm）防御难度上升</li>
 <li>FPV 穿越机成本 &lt;500 元，威胁门槛极低</li></ul></div>
 <div class="hd-box"><div class="hd-num" style="font-size:1.8rem;opacity:.2;position:absolute;top:2px;right:6px">02</div>
-<div class="ct" style="margin-bottom:6px">\u26a0\ufe0f 滥用与实战威胁</div>
+<div class="ct" style="margin-bottom:6px">⚠️ 滥用与实战威胁</div>
 <ul class="ul ul-d">
 <li><span class="hlo">机场侵入</span>：2017 年成都双流 58 架备降</li>
 <li><span class="hlo">军事侦察</span>：非法航拍基地等高价值目标</li>
@@ -145,7 +145,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <li><span class="hlo">集群饱和</span>：数十架同时突防</li>
 <li><span class="hlo">蜂群协同</span>：多机组网动态规避</li></ul></div>
 <div class="hd-box"><div class="hd-num" style="font-size:1.8rem;opacity:.2;position:absolute;top:2px;right:6px">03</div>
-<div class="ct" style="margin-bottom:6px">\U0001f4cb 法规政策与产业需求</div>
+<div class="ct" style="margin-bottom:6px">📋 法规政策与产业需求</div>
 <ul class="ul ul-d">
 <li>《无人驾驶航空器飞行管理暂行条例》2024 施行</li>
 <li>民航局要求重点场所配备反无人机系统</li>
@@ -159,50 +159,50 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="sub">核心能力需求与系统总体指标</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="dl"><div class="dln">\U0001f441\ufe0f</div><div><div class="dlh">全景感知——远距发现、低虚警</div><div class="dlp">RCS 0.01m\u00b2 目标\u22655km，360\u00b0 方位，俯仰 -5\u00b0~+60\u00b0，虚警率 &lt;1 次/h，数据刷新 \u22645s，同时处理\u226550目标</div></div></div>
-<div class="dl dl-o"><div class="dln">\U0001f3af</div><div><div class="dlh">高精度识别——精确分类、威胁分级</div><div class="dlp">区分多旋翼/固定翼/FPV/鸟类，型号识别准确率\u226595%，威胁等级自动评估（蓝/黄/橙/红），识别延迟\u22643s</div></div></div>
-<div class="dl"><div class="dln">\u26a1</div><div><div class="dlh">快速反制——软硬结合、分级响应</div><div class="dlp">软杀伤优先（通信干扰/GNSS诱骗），硬杀伤兜底（激光/网捕/FPV），全流程\u226460s，不误伤合法目标</div></div></div>
-<div class="dl dl-o"><div class="dln">\U0001f310</div><div><div class="dlh">统一管控——身份验证、态势感知</div><div class="dlp">Remote ID 解析 + ADS-B 接收 + 协议侦测，空域态势 2D/3D 显示，威胁信息自动分发至拦截单元</div></div></div>
+<div class="dl"><div class="dln">👁️</div><div><div class="dlh">全景感知——远距发现、低虚警</div><div class="dlp">RCS 0.01m² 目标≥5km，360° 方位，俯仰 -5°~+60°，虚警率 &lt;1 次/h，数据刷新 ≤5s，同时处理≥50目标</div></div></div>
+<div class="dl dl-o"><div class="dln">🎯</div><div><div class="dlh">高精度识别——精确分类、威胁分级</div><div class="dlp">区分多旋翼/固定翼/FPV/鸟类，型号识别准确率≥95%，威胁等级自动评估（蓝/黄/橙/红），识别延迟≤3s</div></div></div>
+<div class="dl"><div class="dln">⚡</div><div><div class="dlh">快速反制——软硬结合、分级响应</div><div class="dlp">软杀伤优先（通信干扰/GNSS诱骗），硬杀伤兜底（激光/网捕/FPV），全流程≤60s，不误伤合法目标</div></div></div>
+<div class="dl dl-o"><div class="dln">🌐</div><div><div class="dlh">统一管控——身份验证、态势感知</div><div class="dlp">Remote ID 解析 + ADS-B 接收 + 协议侦测，空域态势 2D/3D 显示，威胁信息自动分发至拦截单元</div></div></div>
 </div>
 <div class="col">
-<div class="hd-box"><div class="ct">\U0001f4ca 能力指标矩阵</div><div class="g2" style="gap:8px">
+<div class="hd-box"><div class="ct">📊 能力指标矩阵</div><div class="g2" style="gap:8px">
 <div style="background:var(--bg3);border-radius:3px;padding:8px;text-align:center"><div class="kpi" style="font-size:1.3rem">5–15km</div><div style="font-size:.68rem;color:var(--fg2)">最大探测距离</div></div>
 <div style="background:var(--bg3);border-radius:3px;padding:8px;text-align:center"><div class="kpi" style="font-size:1.3rem">&lt;5s</div><div style="font-size:.68rem;color:var(--fg2)">识别响应时间</div></div>
 <div style="background:var(--bg3);border-radius:3px;padding:8px;text-align:center"><div class="kpi" style="font-size:1.3rem">50+</div><div style="font-size:.68rem;color:var(--fg2)">并行目标</div></div>
 <div style="background:var(--bg3);border-radius:3px;padding:8px;text-align:center"><div class="kpi kpi-o" style="font-size:1.3rem">&lt;60s</div><div style="font-size:.68rem;color:var(--fg2)">拦截全流程</div></div></div>
 <div class="sep"></div>
-<div><span class="tag">X 波段 8–12GHz</span><span class="tag">360\u00b0 覆盖</span><span class="tag">-5\u00b0~+60\u00b0 俯仰</span><span class="to">RCS\u22650.001m\u00b2</span><span class="tg">\u226524h 运行</span><span class="tr">MTBF\u22655000h</span></div></div>
-<div class="hd-box"><div class="ct">\U0001f3d7\ufe0f 工程约束</div><ul class="ul ul-d">
-<li>系统功耗 \u22645kW（标准配置）</li>
+<div><span class="tag">X 波段 8–12GHz</span><span class="tag">360° 覆盖</span><span class="tag">-5°~+60° 俯仰</span><span class="to">RCS≥0.001m²</span><span class="tg">≥24h 运行</span><span class="tr">MTBF≥5000h</span></div></div>
+<div class="hd-box"><div class="ct">🏗️ 工程约束</div><ul class="ul ul-d">
+<li>系统功耗 ≤5kW（标准配置）</li>
 <li>部署：固定式/车载/便携</li>
 <li>操作人员：1–2 人值守</li>
-<li>工作温度：-20\u00b0C ~ +55\u00b0C</li>
+<li>工作温度：-20°C ~ +55°C</li>
 <li>防护等级：IP65（室外）</li></ul></div></div></div></div>
 <div class="slide">
 <div class="sl">SYSTEM CONCEPT</div>
 <div class="h2">整体思路</div>
-<div class="sub">「探测预警\u2192识别追踪\u2192空域管理\u2192拦阻截击」四层闭环</div>
+<div class="sub">「探测预警→识别追踪→空域管理→拦阻截击」四层闭环</div>
 <div style="flex:1;display:flex;flex-direction:column;gap:10px">
 <div class="flow" style="margin:4px 0 10px">
-<div class="fi"><div class="icon">\U0001f4e1</div><div class="lb">探测预警</div><div style="font-size:.66rem;color:var(--fg3)">相控阵扫描</div></div><div class="hd-arrow">\u2192</div>
-<div class="fi"><div class="icon">\U0001f3af</div><div class="lb">识别追踪</div><div style="font-size:.66rem;color:var(--fg3)">光电双波段</div></div><div class="hd-arrow">\u2192</div>
-<div class="fi"><div class="icon">\U0001f310</div><div class="lb">空域管理</div><div style="font-size:.66rem;color:var(--fg3)">身份验证</div></div><div class="hd-arrow">\u2192</div>
-<div class="fi"><div class="icon">\u2694\ufe0f</div><div class="lb">拦阻截击</div><div style="font-size:.66rem;color:var(--fg3)">软硬杀伤</div></div></div>
+<div class="fi"><div class="icon">📡</div><div class="lb">探测预警</div><div style="font-size:.66rem;color:var(--fg3)">相控阵扫描</div></div><div class="hd-arrow">→</div>
+<div class="fi"><div class="icon">🎯</div><div class="lb">识别追踪</div><div style="font-size:.66rem;color:var(--fg3)">光电双波段</div></div><div class="hd-arrow">→</div>
+<div class="fi"><div class="icon">🌐</div><div class="lb">空域管理</div><div style="font-size:.66rem;color:var(--fg3)">身份验证</div></div><div class="hd-arrow">→</div>
+<div class="fi"><div class="icon">⚔️</div><div class="lb">拦阻截击</div><div style="font-size:.66rem;color:var(--fg3)">软硬杀伤</div></div></div>
 <div class="hd-box"><div style="font-size:.85rem;line-height:1.6;color:var(--fg2);text-align:center">
-<span class="hl">分层防御、纵深拦截</span>：从 <span class="hlo">远距预警（10\u201315km）</span> 到 <span class="hlo">近距拦截（0\u20133km）</span> 全空域覆盖<br>
+<span class="hl">分层防御、纵深拦截</span>：从 <span class="hlo">远距预警（10–15km）</span> 到 <span class="hlo">近距拦截（0–3km）</span> 全空域覆盖<br>
 以 <span class="hl">相控阵雷达</span> 为探测起点，<span class="hl">双波段光电</span> 为识别确认，<span class="hl">空管信息</span> 为合法判别依据，<span class="hlo">软杀伤优先、硬杀伤兜底</span> 分级反制</div></div>
 <div class="g2">
-<div class="hd-box"><div class="ct">\U0001f504 数据流转</div><ul class="ul ul-d">
-<li>雷达回波 \u2192 FPGA 实时波束形成 \u2192 点航迹</li>
-<li>服务器航迹关联 + 威胁评估 \u2192 光电转台捕获</li>
-<li>目标坐标 + 识别结果 \u2192 空管身份合法性验证</li>
-<li>威胁确认 \u2192 自动/人工拦截 + 效果反馈</li>
+<div class="hd-box"><div class="ct">🔄 数据流转</div><ul class="ul ul-d">
+<li>雷达回波 → FPGA 实时波束形成 → 点航迹</li>
+<li>服务器航迹关联 + 威胁评估 → 光电转台捕获</li>
+<li>目标坐标 + 识别结果 → 空管身份合法性验证</li>
+<li>威胁确认 → 自动/人工拦截 + 效果反馈</li>
 </ul></div>
-<div class="hd-box hd-l2"><div class="ct">\U0001f6e1\ufe0f 防御层次</div><ul class="ul ul-d">
-<li><span class="hl">外层 10\u201315km</span>：雷达广域扫描预警</li>
-<li><span class="hl">中层 3\u201310km</span>：光电识别+威胁分级</li>
-<li><span class="hl">内层 1\u20133km</span>：空管验证+轨迹比对</li>
-<li><span class="hlo">核心 0\u20131km</span>：硬杀伤兜底拦截</li>
+<div class="hd-box hd-l2"><div class="ct">🛡️ 防御层次</div><ul class="ul ul-d">
+<li><span class="hl">外层 10–15km</span>：雷达广域扫描预警</li>
+<li><span class="hl">中层 3–10km</span>：光电识别+威胁分级</li>
+<li><span class="hl">内层 1–3km</span>：空管验证+轨迹比对</li>
+<li><span class="hlo">核心 0–1km</span>：硬杀伤兜底拦截</li>
 <li>单站独立 + 多站组网协同双模式</li></ul></div></div></div></div>
 <div class="slide">
 <div class="sl">SYSTEM ARCHITECTURE</div>
@@ -212,161 +212,161 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="hd-box"><div class="ct" style="text-align:center;margin-bottom:6px">系统架构</div>
 <svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-height:260px">
 <defs><marker id="m1" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4Z" fill="#0099cc"/></marker><marker id="m2" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4Z" fill="#cc5522"/></marker><marker id="m3" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4Z" fill="#22aa66"/></marker></defs>
-<rect x="15" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="87" y="28" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">\U0001f4e1 相控阵雷达</text><text x="87" y="43" text-anchor="middle" fill="#666670" font-size="8">X 波段 DBF+CFAR+MTI</text>
-<rect x="210" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="282" y="28" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">\U0001f3a5 光电转台</text><text x="282" y="43" text-anchor="middle" fill="#666670" font-size="8">红外+可见光双波段</text>
-<rect x="405" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="477" y="28" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">\U0001f4e1 空管信息</text><text x="477" y="43" text-anchor="middle" fill="#666670" font-size="8">Remote ID / ADS-B</text>
-<rect x="600" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#cc5522" stroke-width="1"/><text x="672" y="28" text-anchor="middle" fill="#cc5522" font-size="10" font-weight="600">\u2694\ufe0f 反制单元</text><text x="672" y="43" text-anchor="middle" fill="#666670" font-size="8">干扰/激光/拦截</text>
-<rect x="130" y="80" width="220" height="40" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="240" y="97" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">\u2699\ufe0f 数据处理服务器</text><text x="240" y="113" text-anchor="middle" fill="#666670" font-size="8">FPGA+GPU 异构 \u00b7 航迹/威胁评估</text>
-<rect x="430" y="80" width="220" height="40" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="540" y="97" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">\U0001f310 空管数据处理</text><text x="540" y="113" text-anchor="middle" fill="#666670" font-size="8">身份验证\u00b7轨迹比对</text>
-<rect x="280" y="150" width="200" height="40" rx="2" fill="#f0f0eb" stroke="#22aa66" stroke-width="1"/><text x="380" y="167" text-anchor="middle" fill="#22aa66" font-size="10" font-weight="600">\U0001f5a5\ufe0f 中央指挥平台</text><text x="380" y="183" text-anchor="middle" fill="#666670" font-size="8">态势显示\u00b7资源调度\u00b7指令</text>
+<rect x="15" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="87" y="28" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">📡 相控阵雷达</text><text x="87" y="43" text-anchor="middle" fill="#666670" font-size="8">X 波段 DBF+CFAR+MTI</text>
+<rect x="210" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="282" y="28" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">🎥 光电转台</text><text x="282" y="43" text-anchor="middle" fill="#666670" font-size="8">红外+可见光双波段</text>
+<rect x="405" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="477" y="28" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">📡 空管信息</text><text x="477" y="43" text-anchor="middle" fill="#666670" font-size="8">Remote ID / ADS-B</text>
+<rect x="600" y="10" width="145" height="42" rx="2" fill="#f0f0eb" stroke="#cc5522" stroke-width="1"/><text x="672" y="28" text-anchor="middle" fill="#cc5522" font-size="10" font-weight="600">⚔️ 反制单元</text><text x="672" y="43" text-anchor="middle" fill="#666670" font-size="8">干扰/激光/拦截</text>
+<rect x="130" y="80" width="220" height="40" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="240" y="97" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">⚙️ 数据处理服务器</text><text x="240" y="113" text-anchor="middle" fill="#666670" font-size="8">FPGA+GPU 异构 · 航迹/威胁评估</text>
+<rect x="430" y="80" width="220" height="40" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width="1"/><text x="540" y="97" text-anchor="middle" fill="#0099cc" font-size="10" font-weight="600">🌐 空管数据处理</text><text x="540" y="113" text-anchor="middle" fill="#666670" font-size="8">身份验证·轨迹比对</text>
+<rect x="280" y="150" width="200" height="40" rx="2" fill="#f0f0eb" stroke="#22aa66" stroke-width="1"/><text x="380" y="167" text-anchor="middle" fill="#22aa66" font-size="10" font-weight="600">🖥️ 中央指挥平台</text><text x="380" y="183" text-anchor="middle" fill="#666670" font-size="8">态势显示·资源调度·指令</text>
 <line x1="87" y1="52" x2="200" y2="80" stroke="#0099cc" stroke-width=".8" marker-end="url(#m1)"/><line x1="282" y1="52" x2="280" y2="80" stroke="#0099cc" stroke-width=".8" marker-end="url(#m1)"/><line x1="477" y1="52" x2="510" y2="80" stroke="#0099cc" stroke-width=".8" marker-end="url(#m1)"/><line x1="672" y1="52" x2="610" y2="80" stroke="#cc5522" stroke-width=".8" marker-end="url(#m2)"/>
 <line x1="240" y1="120" x2="330" y2="150" stroke="#0099cc" stroke-width=".8" marker-end="url(#m1)"/><line x1="540" y1="120" x2="430" y2="150" stroke="#0099cc" stroke-width=".8" marker-end="url(#m1)"/><line x1="350" y1="100" x2="430" y2="100" stroke="#0099cc" stroke-width=".8" marker-end="url(#m1)"/>
-<rect x="15" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#22aa66" stroke-width=".6"/><text x="75" y="234" text-anchor="middle" fill="#22aa66" font-size="8">\U0001f517 民航登记系统</text><text x="75" y="245" text-anchor="middle" fill="#666670" font-size="6">合法飞行验证</text>
-<rect x="190" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#cc5522" stroke-width=".6"/><text x="250" y="234" text-anchor="middle" fill="#cc5522" font-size="8">\U0001f6a8 应急响应中心</text><text x="250" y="245" text-anchor="middle" fill="#666670" font-size="6">告警联动</text>
-<rect x="365" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width=".6"/><text x="425" y="234" text-anchor="middle" fill="#0099cc" font-size="8">\U0001f4ca 数据记录中心</text><text x="425" y="245" text-anchor="middle" fill="#666670" font-size="6">事后分析取证</text>
-<rect x="540" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#bb8800" stroke-width=".6"/><text x="600" y="234" text-anchor="middle" fill="#bb8800" font-size="8">\U0001f310 UTM 平台</text><text x="600" y="245" text-anchor="middle" fill="#666670" font-size="6">无人机交通管理</text>
+<rect x="15" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#22aa66" stroke-width=".6"/><text x="75" y="234" text-anchor="middle" fill="#22aa66" font-size="8">🔗 民航登记系统</text><text x="75" y="245" text-anchor="middle" fill="#666670" font-size="6">合法飞行验证</text>
+<rect x="190" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#cc5522" stroke-width=".6"/><text x="250" y="234" text-anchor="middle" fill="#cc5522" font-size="8">🚨 应急响应中心</text><text x="250" y="245" text-anchor="middle" fill="#666670" font-size="6">告警联动</text>
+<rect x="365" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#0099cc" stroke-width=".6"/><text x="425" y="234" text-anchor="middle" fill="#0099cc" font-size="8">📊 数据记录中心</text><text x="425" y="245" text-anchor="middle" fill="#666670" font-size="6">事后分析取证</text>
+<rect x="540" y="220" width="120" height="30" rx="2" fill="#f0f0eb" stroke="#bb8800" stroke-width=".6"/><text x="600" y="234" text-anchor="middle" fill="#bb8800" font-size="8">🌐 UTM 平台</text><text x="600" y="245" text-anchor="middle" fill="#666670" font-size="6">无人机交通管理</text>
 <line x1="75" y1="190" x2="75" y2="220" stroke="#22aa66" stroke-width=".6" stroke-dasharray="3,2" marker-end="url(#m3)"/><line x1="250" y1="190" x2="250" y2="220" stroke="#cc5522" stroke-width=".6" stroke-dasharray="3,2" marker-end="url(#m2)"/><line x1="425" y1="190" x2="425" y2="220" stroke="#0099cc" stroke-width=".6" stroke-dasharray="3,2" marker-end="url(#m1)"/><line x1="600" y1="190" x2="600" y2="220" stroke="#bb8800" stroke-width=".6" stroke-dasharray="3,2" marker-end="url(#m1)"/>
 </svg></div>
 <div class="g2">
-<div class="hd-box"><div class="ct">\U0001f4d0 架构设计原则</div><ul class="ul ul-d"><li><span class="hl">模块化</span>：子系统独立部署升级，标准接口</li><li><span class="hl">分布式</span>：边缘计算+中心服务器分级</li><li><span class="hl">冗余</span>：关键节点双机热备</li><li><span class="hl">开放</span>：支持第三方设备接入</li><li><span class="hl">安全</span>：内外网物理隔离</li></ul></div>
-<div class="hd-box hd-l2"><div class="ct">\U0001f504 子系统接口</div><ul class="ul ul-d"><li>雷达\u2192服务器：UDP 点迹流 10Hz</li><li>服务器\u2192光电：TCP 指令 200ms</li><li>光电\u2192服务器：RTSP+MQTT 元数据</li><li>空管\u2192服务器：REST+WebSocket</li><li>服务器\u2192反制：优先级队列</li></ul></div></div></div></div>
+<div class="hd-box"><div class="ct">📐 架构设计原则</div><ul class="ul ul-d"><li><span class="hl">模块化</span>：子系统独立部署升级，标准接口</li><li><span class="hl">分布式</span>：边缘计算+中心服务器分级</li><li><span class="hl">冗余</span>：关键节点双机热备</li><li><span class="hl">开放</span>：支持第三方设备接入</li><li><span class="hl">安全</span>：内外网物理隔离</li></ul></div>
+<div class="hd-box hd-l2"><div class="ct">🔄 子系统接口</div><ul class="ul ul-d"><li>雷达→服务器：UDP 点迹流 10Hz</li><li>服务器→光电：TCP 指令 200ms</li><li>光电→服务器：RTSP+MQTT 元数据</li><li>空管→服务器：REST+WebSocket</li><li>服务器→反制：优先级队列</li></ul></div></div></div></div>
 <div class="slide">
 <div class="sl">DETECTION // DESIGN</div>
-<div class="h2">探测预警 \u2014 分系统设计</div>
+<div class="h2">探测预警 — 分系统设计</div>
 <div class="sub">相控阵雷达探测方案与覆盖策略</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="hd-box"><div class="ct">\U0001f4e1 雷达体制参数</div>
+<div class="hd-box"><div class="ct">📡 雷达体制参数</div>
 <table class="tbl"><tr><th>参数</th><th>指标</th></tr>
 <tr><td>工作频段</td><td><span class="hl">X 波段（10.5GHz）</span></td></tr>
 <tr><td>信号体制</td><td>PLFM 脉内线性调频 + 脉冲多普勒</td></tr>
-<tr><td>天线阵列</td><td><span class="hl">16\u00d78 微带贴片相控阵</span></td></tr>
+<tr><td>天线阵列</td><td><span class="hl">16×8 微带贴片相控阵</span></td></tr>
 <tr><td>波束形成</td><td>数字波束形成（DBF）多波束</td></tr>
 <tr><td>FPGA 处理</td><td>XC7A50T，实时信号处理</td></tr>
 <tr><td>检测算法</td><td><span class="hl">CFAR 恒虚警 + MTI 动目标</span></td></tr>
-<tr><td>探测距离</td><td>RCS 0.1m\u00b2: <span class="hl">20km</span> / 0.01m\u00b2: <span class="hl">3km</span></td></tr>
-<tr><td>目标容量</td><td>同时追踪 <span class="hl">50\u2013100</span> 目标</td></tr></table></div>
-<div class="hd-box"><div class="ct">\u26a0\ufe0f 四级预警</div><div style="display:flex;gap:4px;flex-wrap:wrap"><span class="tl tl-b">\U0001f535 蓝\u2014友方</span><span class="tl tl-g">\U0001f7e2 绿\u2014未识别</span><span class="tl tl-y">\U0001f7e1 黄\u2014可疑</span><span class="tl tl-r">\U0001f534 红\u2014威胁反制</span></div></div></div>
+<tr><td>探测距离</td><td>RCS 0.1m²: <span class="hl">20km</span> / 0.01m²: <span class="hl">3km</span></td></tr>
+<tr><td>目标容量</td><td>同时追踪 <span class="hl">50–100</span> 目标</td></tr></table></div>
+<div class="hd-box"><div class="ct">⚠️ 四级预警</div><div style="display:flex;gap:4px;flex-wrap:wrap"><span class="tl tl-b">🔵 蓝—友方</span><span class="tl tl-g">🟢 绿—未识别</span><span class="tl tl-y">🟡 黄—可疑</span><span class="tl tl-r">🔴 红—威胁反制</span></div></div></div>
 <div class="col">
-<div class="hd-box"><div class="ct">\U0001f3af 检测流程</div><div class="flow" style="margin:3px 0">\U0001f4e1回波\u2192\U0001f504MTI\u2192\U0001f50dCFAR\u2192\U0001f4ca点迹\u2192\U0001f9f0航迹</div><ul class="ul ul-d"><li>回波经低噪放大 ADC \u2192 FPGA</li><li>MTI 对消器抑制静止杂波</li><li>CFAR 自适应门限虚警率 &lt;10\u207b\u2076</li><li>点迹凝聚消除多径虚警</li><li>航迹关联采用最近邻+alpha-beta</li></ul></div>
-<div class="hd-box"><div class="ct">\U0001f9e0 AI 识别</div><ul class="ul ul-d"><li>微多普勒特征区分旋翼/固定翼/鸟类</li><li>CNN 输入时频谱图+多普勒特征向量</li><li>输出：类型+置信度+预警等级</li><li>支持 \u226510 种主流机型分类</li></ul></div>
-<div class="hd-box"><div class="ct">\u2699\ufe0f 支撑技术</div><ul class="ul ul-d"><li>PLFM 大时宽带宽积脉冲压缩</li><li>数字波束形成同时多波束覆盖</li><li>CFAR+MTI 双通道杂波抑制</li><li>FPGA 零延迟信号处理流水线</li><li>微多普勒旋翼调制特征识别</li></ul></div></div></div></div>
+<div class="hd-box"><div class="ct">🎯 检测流程</div><div class="flow" style="margin:3px 0">📡回波→🔄MTI→🔍CFAR→📊点迹→🧰航迹</div><ul class="ul ul-d"><li>回波经低噪放大 ADC → FPGA</li><li>MTI 对消器抑制静止杂波</li><li>CFAR 自适应门限虚警率 &lt;10⁻⁶</li><li>点迹凝聚消除多径虚警</li><li>航迹关联采用最近邻+alpha-beta</li></ul></div>
+<div class="hd-box"><div class="ct">🧠 AI 识别</div><ul class="ul ul-d"><li>微多普勒特征区分旋翼/固定翼/鸟类</li><li>CNN 输入时频谱图+多普勒特征向量</li><li>输出：类型+置信度+预警等级</li><li>支持 ≥10 种主流机型分类</li></ul></div>
+<div class="hd-box"><div class="ct">⚙️ 支撑技术</div><ul class="ul ul-d"><li>PLFM 大时宽带宽积脉冲压缩</li><li>数字波束形成同时多波束覆盖</li><li>CFAR+MTI 双通道杂波抑制</li><li>FPGA 零延迟信号处理流水线</li><li>微多普勒旋翼调制特征识别</li></ul></div></div></div></div>
 
 <div class="slide">
 <div class="sl">DETECTION // EQUIPMENT</div>
-<div class="h2">探测预警 \u2014 关键设备</div>
+<div class="h2">探测预警 — 关键设备</div>
 <div class="sub">雷达核心装备与辅助设备（device-card新样式）</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="dc"><div class="dci">\U0001f4e1</div><div class="dcb"><div class="dcn">X 波段相控阵雷达</div><div class="dcd">16\u00d78 微带天线阵列，PLFM 脉冲</div><div class="dcs"><em>频率：</em>10.5GHz | <em>功率：</em>200W | <em>脉宽：</em>10\u2013100\u03bcs</div></div></div>
-<div class="dc"><div class="dci">\U0001f9e0</div><div class="dcb"><div class="dcn">FPGA 信号处理板</div><div class="dcd">XC7A50T，波束形成/脉冲压缩/MTI/CFAR</div><div class="dcs"><em>LUT：</em>52K | <em>DSP：</em>240 | <em>ADC：</em>JESD204B</div></div></div>
-<div class="dc"><div class="dci">\U0001f5a5\ufe0f</div><div class="dcb"><div class="dcn">数据处理服务器</div><div class="dcd">航迹关联+威胁评估+AI 分类推理</div><div class="dcs"><em>CPU：</em>Xeon/EPYC | <em>GPU：</em>NVIDIA T4 | <em>RAM：</em>64GB</div></div></div></div>
+<div class="dc"><div class="dci">📡</div><div class="dcb"><div class="dcn">X 波段相控阵雷达</div><div class="dcd">16×8 微带天线阵列，PLFM 脉冲</div><div class="dcs"><em>频率：</em>10.5GHz | <em>功率：</em>200W | <em>脉宽：</em>10–100μs</div></div></div>
+<div class="dc"><div class="dci">🧠</div><div class="dcb"><div class="dcn">FPGA 信号处理板</div><div class="dcd">XC7A50T，波束形成/脉冲压缩/MTI/CFAR</div><div class="dcs"><em>LUT：</em>52K | <em>DSP：</em>240 | <em>ADC：</em>JESD204B</div></div></div>
+<div class="dc"><div class="dci">🖥️</div><div class="dcb"><div class="dcn">数据处理服务器</div><div class="dcd">航迹关联+威胁评估+AI 分类推理</div><div class="dcs"><em>CPU：</em>Xeon/EPYC | <em>GPU：</em>NVIDIA T4 | <em>RAM：</em>64GB</div></div></div></div>
 <div class="col">
-<div class="dc"><div class="dci">\U0001f50d</div><div class="dcb"><div class="dcn">全向监测天线</div><div class="dcd">8\u201312GHz 宽带全向信号监测</div><div class="dcs"><em>增益：</em>3dBi | <em>极化：</em>垂直</div></div></div>
-<div class="dc"><div class="dci">\U0001f504</div><div class="dcb"><div class="dcn">转台伺服系统</div><div class="dcd">360\u00b0 连续旋转承载雷达</div><div class="dcs"><em>转速：</em>6\u201312rpm | <em>精度：</em>0.1\u00b0 | <em>IP65</em></div></div></div>
-<div class="dc"><div class="dci">\U0001f321\ufe0f</div><div class="dcb"><div class="dcn">环境监测传感器</div><div class="dcd">温湿度/风速/能见度自适应</div></div></div></div></div></div>
+<div class="dc"><div class="dci">🔍</div><div class="dcb"><div class="dcn">全向监测天线</div><div class="dcd">8–12GHz 宽带全向信号监测</div><div class="dcs"><em>增益：</em>3dBi | <em>极化：</em>垂直</div></div></div>
+<div class="dc"><div class="dci">🔄</div><div class="dcb"><div class="dcn">转台伺服系统</div><div class="dcd">360° 连续旋转承载雷达</div><div class="dcs"><em>转速：</em>6–12rpm | <em>精度：</em>0.1° | <em>IP65</em></div></div></div>
+<div class="dc"><div class="dci">🌡️</div><div class="dcb"><div class="dcn">环境监测传感器</div><div class="dcd">温湿度/风速/能见度自适应</div></div></div></div></div></div>
 <div class="slide">
 <div class="sl">IDENTIFICATION // DESIGN</div>
-<div class="h2">识别追踪 \u2014 分系统设计</div>
+<div class="h2">识别追踪 — 分系统设计</div>
 <div class="sub">双波段光电识别与多目标跟踪</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="hd-box"><div class="ct">\U0001f3a5 双波段光电参数</div>
+<div class="hd-box"><div class="ct">🎥 双波段光电参数</div>
 <table class="tbl"><tr><th>参数</th><th>红外</th><th>可见光</th></tr>
 <tr><td>传感器</td><td>中/长波红外</td><td>高清 CMOS</td></tr>
-<tr><td>分辨率</td><td>640\u00d7512 / 1280\u00d71024</td><td>1920\u00d71080</td></tr>
-<tr><td>焦距</td><td>25\u2013150mm</td><td>15\u2013300mm</td></tr>
-<tr><td>探测距离</td><td><span class="hl">\u22655km</span></td><td><span class="hl">\u226510km</span></td></tr>
-<tr><td>识别距离</td><td><span class="hl">\u22653km</span></td><td><span class="hl">\u22655km</span></td></tr>
+<tr><td>分辨率</td><td>640×512 / 1280×1024</td><td>1920×1080</td></tr>
+<tr><td>焦距</td><td>25–150mm</td><td>15–300mm</td></tr>
+<tr><td>探测距离</td><td><span class="hl">≥5km</span></td><td><span class="hl">≥10km</span></td></tr>
+<tr><td>识别距离</td><td><span class="hl">≥3km</span></td><td><span class="hl">≥5km</span></td></tr>
 <tr><td>模式</td><td>全天候</td><td>昼间/微光</td></tr></table></div>
-<div class="hd-box"><div class="ct">\U0001f4d0 转台参数</div>
-<table class="tbl"><tr><th>参数</th><th>指标</th></tr><tr><td>方位</td><td>360\u00b0 连续</td></tr><tr><td>俯仰</td><td>-20\u00b0~+90\u00b0</td></tr><tr><td>角速度</td><td>0.01\u201360\u00b0/s</td></tr><tr><td>精度</td><td>\u22640.01\u00b0</td></tr><tr><td>防护</td><td>IP67</td></tr></table></div></div>
+<div class="hd-box"><div class="ct">📐 转台参数</div>
+<table class="tbl"><tr><th>参数</th><th>指标</th></tr><tr><td>方位</td><td>360° 连续</td></tr><tr><td>俯仰</td><td>-20°~+90°</td></tr><tr><td>角速度</td><td>0.01–60°/s</td></tr><tr><td>精度</td><td>≤0.01°</td></tr><tr><td>防护</td><td>IP67</td></tr></table></div></div>
 <div class="col">
-<div class="hd-box hd-l2"><div class="ct">\U0001f504 识别跟踪流程</div>
-<div class="flow" style="margin:3px 0">\U0001f4e1雷达引导\u2192\U0001f3af转台\u2192\U0001f4f7捕获\u2192\U0001f9e0YOLOv8\u2192\U0001f517SORT</div>
-<ul class="ul ul-d"><li>雷达推送坐标引导光电指向</li><li><span class="hl">YOLOv8</span> 实时目标检测</li><li><span class="hl">SORT+卡尔曼滤波</span> 多目标跟踪</li><li>红外/可见光图像融合增强</li><li>延迟 \u2264200ms，并行多目标</li></ul></div>
-<div class="hd-box"><div class="ct">\U0001f3f7\ufe0f 型号分类</div><ul class="ul ul-d"><li>支持 \u226510 种主流机型识别</li><li>深度学习特征提取</li><li>数据库在线更新</li></ul></div>
-<div class="hd-box"><div class="ct">\u2699\ufe0f 支撑技术</div><ul class="ul ul-d"><li><span class="hl">YOLOv8</span>：轻量实时检测 mAP\u226585%</li><li><span class="hl">SORT</span>：卡尔曼+匈牙利匹配</li><li><span class="hl">红外+可见光融合</span>：多光谱互补</li><li><span class="hl">雷达-光电联动</span>：坐标补偿</li><li><span class="hl">图像增强</span>：去雾/低光/超分</li></ul></div></div></div></div>
+<div class="hd-box hd-l2"><div class="ct">🔄 识别跟踪流程</div>
+<div class="flow" style="margin:3px 0">📡雷达引导→🎯转台→📷捕获→🧠YOLOv8→🔗SORT</div>
+<ul class="ul ul-d"><li>雷达推送坐标引导光电指向</li><li><span class="hl">YOLOv8</span> 实时目标检测</li><li><span class="hl">SORT+卡尔曼滤波</span> 多目标跟踪</li><li>红外/可见光图像融合增强</li><li>延迟 ≤200ms，并行多目标</li></ul></div>
+<div class="hd-box"><div class="ct">🏷️ 型号分类</div><ul class="ul ul-d"><li>支持 ≥10 种主流机型识别</li><li>深度学习特征提取</li><li>数据库在线更新</li></ul></div>
+<div class="hd-box"><div class="ct">⚙️ 支撑技术</div><ul class="ul ul-d"><li><span class="hl">YOLOv8</span>：轻量实时检测 mAP≥85%</li><li><span class="hl">SORT</span>：卡尔曼+匈牙利匹配</li><li><span class="hl">红外+可见光融合</span>：多光谱互补</li><li><span class="hl">雷达-光电联动</span>：坐标补偿</li><li><span class="hl">图像增强</span>：去雾/低光/超分</li></ul></div></div></div></div>
 
 <div class="slide">
 <div class="sl">IDENTIFICATION // EQUIPMENT</div>
-<div class="h2">识别追踪 \u2014 关键设备</div>
+<div class="h2">识别追踪 — 关键设备</div>
 <div class="sub">光电转台及配套设备</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="dc"><div class="dci">\U0001f4f7</div><div class="dcb"><div class="dcn">双波段光电转台</div><div class="dcd">红外+可见光一体，雷达引导锁定</div><div class="dcs"><em>红外：</em>640\u00d7512@30fps | <em>可见光：</em>1080p | <em>变焦：</em>30\u00d7</div></div></div>
-<div class="dc"><div class="dci">\U0001f9e0</div><div class="dcb"><div class="dcn">AI 推理计算板</div><div class="dcd">边缘端运行 YOLOv8 推理</div><div class="dcs"><em>芯片：</em>Jetson Orin NX | <em>算力：</em>100 TOPS | <em>延迟：</em>&lt;30ms</div></div></div>
-<div class="dc"><div class="dci">\U0001f4a1</div><div class="dcb"><div class="dcn">激光照明器</div><div class="dcd">940nm 近红外补光 \u22653km</div></div></div></div>
+<div class="dc"><div class="dci">📷</div><div class="dcb"><div class="dcn">双波段光电转台</div><div class="dcd">红外+可见光一体，雷达引导锁定</div><div class="dcs"><em>红外：</em>640×512@30fps | <em>可见光：</em>1080p | <em>变焦：</em>30×</div></div></div>
+<div class="dc"><div class="dci">🧠</div><div class="dcb"><div class="dcn">AI 推理计算板</div><div class="dcd">边缘端运行 YOLOv8 推理</div><div class="dcs"><em>芯片：</em>Jetson Orin NX | <em>算力：</em>100 TOPS | <em>延迟：</em>&lt;30ms</div></div></div>
+<div class="dc"><div class="dci">💡</div><div class="dcb"><div class="dcn">激光照明器</div><div class="dcd">940nm 近红外补光 ≥3km</div></div></div></div>
 <div class="col">
-<div class="dc"><div class="dci">\U0001f3af</div><div class="dcb"><div class="dcn">伺服驱动控制器</div><div class="dcd">高精度电机驱动响应引导</div><div class="dcs"><em>响应：</em>&lt;50ms | <em>精度：</em>0.01\u00b0</div></div></div>
-<div class="dc"><div class="dci">\U0001f5a5\ufe0f</div><div class="dcb"><div class="dcn">视频分析服务器</div><div class="dcd">多路 RTSP 解析汇总识别结果</div><div class="dcs"><em>通道：</em>4 路 | <em>协议：</em>RTSP/GB28181</div></div></div>
-<div class="dc"><div class="dci">\U0001f305</div><div class="dcb"><div class="dcn">环境补光/遮光系统</div><div class="dcd">自动调节适应强光低照度</div></div></div></div></div></div>
+<div class="dc"><div class="dci">🎯</div><div class="dcb"><div class="dcn">伺服驱动控制器</div><div class="dcd">高精度电机驱动响应引导</div><div class="dcs"><em>响应：</em>&lt;50ms | <em>精度：</em>0.01°</div></div></div>
+<div class="dc"><div class="dci">🖥️</div><div class="dcb"><div class="dcn">视频分析服务器</div><div class="dcd">多路 RTSP 解析汇总识别结果</div><div class="dcs"><em>通道：</em>4 路 | <em>协议：</em>RTSP/GB28181</div></div></div>
+<div class="dc"><div class="dci">🌅</div><div class="dcb"><div class="dcn">环境补光/遮光系统</div><div class="dcd">自动调节适应强光低照度</div></div></div></div></div></div>
 <div class="slide">
 <div class="sl">AIRSPACE // DESIGN</div>
-<div class="h2">空域管理 \u2014 分系统设计</div>
+<div class="h2">空域管理 — 分系统设计</div>
 <div class="sub">低空空域身份识别与合法飞行验证</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="hd-box"><div class="ct">\U0001f4e1 身份识别方式</div><ul class="ul ul-d"><li><span class="hl">Remote ID</span>：WiFi/BLE 广播解析序列号/位置/高度</li><li><span class="hl">ADS-B</span>：1090MHz 航空器广播信息</li><li><span class="hl">飞控协议侦测</span>：2.4/5.8G 分析提取机型和 ID</li></ul></div>
-<div class="hd-box"><div class="ct">\u2705 合法性验证</div><ul class="ul ul-d"><li><span class="hl">登记查询</span>：对接民航局无人机登记系统</li><li><span class="hl">计划核验</span>：飞行计划航线/高度/时段比对</li><li><span class="hl">围栏检查</span>：电子围栏合规性检查</li></ul></div>
-<div class="hd-box hd-l2"><div class="ct">\U0001f3af 决策逻辑</div><ul class="ul ul-d"><li><span class="hlg">合法</span>：已登记+已申报+轨迹一致\u2192绿色</li><li><span class="hl">可疑</span>：已登记未申报/轨迹偏离\u2192黄色</li><li><span class="hlr">非法</span>：未登记未申报\u2192红色\u2192启动反制</li></ul></div></div>
+<div class="hd-box"><div class="ct">📡 身份识别方式</div><ul class="ul ul-d"><li><span class="hl">Remote ID</span>：WiFi/BLE 广播解析序列号/位置/高度</li><li><span class="hl">ADS-B</span>：1090MHz 航空器广播信息</li><li><span class="hl">飞控协议侦测</span>：2.4/5.8G 分析提取机型和 ID</li></ul></div>
+<div class="hd-box"><div class="ct">✅ 合法性验证</div><ul class="ul ul-d"><li><span class="hl">登记查询</span>：对接民航局无人机登记系统</li><li><span class="hl">计划核验</span>：飞行计划航线/高度/时段比对</li><li><span class="hl">围栏检查</span>：电子围栏合规性检查</li></ul></div>
+<div class="hd-box hd-l2"><div class="ct">🎯 决策逻辑</div><ul class="ul ul-d"><li><span class="hlg">合法</span>：已登记+已申报+轨迹一致→绿色</li><li><span class="hl">可疑</span>：已登记未申报/轨迹偏离→黄色</li><li><span class="hlr">非法</span>：未登记未申报→红色→启动反制</li></ul></div></div>
 <div class="col">
-<div class="hd-box"><div class="ct">\u26a0\ufe0f 轨迹比对与威胁分发</div><ul class="ul ul-d"><li><span class="hl">实时比对</span>：探测轨迹 vs 申报轨迹</li><li><span class="hl">自动标记</span>：超阈值自动标记异常</li><li><span class="hl">信息推送</span>：推送至拦截单元</li></ul></div>
-<div class="hd-box"><div class="ct">\U0001f5fa\ufe0f 空域态势显示</div><ul class="ul ul-d"><li>2D/3D 态势图多图层叠加</li><li>雷达/光电/空管/气象/地理信息</li></ul></div>
-<div class="hd-box"><div class="ct">\u2699\ufe0f 支撑技术</div><ul class="ul ul-d"><li>Remote ID ASTM F3411 协议</li><li>多源数据融合联合验证</li><li>时空轨迹相似度偏差检测</li><li>动态地理围栏越界告警</li><li>UTM 无人机交通管理数据交换</li></ul></div></div></div></div>
+<div class="hd-box"><div class="ct">⚠️ 轨迹比对与威胁分发</div><ul class="ul ul-d"><li><span class="hl">实时比对</span>：探测轨迹 vs 申报轨迹</li><li><span class="hl">自动标记</span>：超阈值自动标记异常</li><li><span class="hl">信息推送</span>：推送至拦截单元</li></ul></div>
+<div class="hd-box"><div class="ct">🗺️ 空域态势显示</div><ul class="ul ul-d"><li>2D/3D 态势图多图层叠加</li><li>雷达/光电/空管/气象/地理信息</li></ul></div>
+<div class="hd-box"><div class="ct">⚙️ 支撑技术</div><ul class="ul ul-d"><li>Remote ID ASTM F3411 协议</li><li>多源数据融合联合验证</li><li>时空轨迹相似度偏差检测</li><li>动态地理围栏越界告警</li><li>UTM 无人机交通管理数据交换</li></ul></div></div></div></div>
 
 <div class="slide">
 <div class="sl">AIRSPACE // EQUIPMENT</div>
-<div class="h2">空域管理 \u2014 关键设备</div>
+<div class="h2">空域管理 — 关键设备</div>
 <div class="sub">空管信息采集与态势显示设备</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="dc"><div class="dci">\U0001f4f6</div><div class="dcb"><div class="dcn">Remote ID 接收器</div><div class="dcd">WiFi/BLE 广播接收身份+位置</div><div class="dcs"><em>频段：</em>2.4GHz/BLE5.0 | <em>距离：</em>\u22655km | <em>ASTM F3411</em></div></div></div>
-<div class="dc"><div class="dci">\u2708\ufe0f</div><div class="dcb"><div class="dcn">ADS-B 接收机</div><div class="dcd">1090MHz 航空器广播接收</div><div class="dcs"><em>协议：</em>Mode S | <em>刷新：</em>\u22651Hz</div></div></div>
-<div class="dc"><div class="dci">\U0001f50d</div><div class="dcb"><div class="dcn">通信协议侦测设备</div><div class="dcd">2.4/5.8/900MHz 侦测识别机型</div><div class="dcs"><em>支持：</em>大疆 OCUSYNC | <em>距离：</em>\u226510km</div></div></div></div>
+<div class="dc"><div class="dci">📶</div><div class="dcb"><div class="dcn">Remote ID 接收器</div><div class="dcd">WiFi/BLE 广播接收身份+位置</div><div class="dcs"><em>频段：</em>2.4GHz/BLE5.0 | <em>距离：</em>≥5km | <em>ASTM F3411</em></div></div></div>
+<div class="dc"><div class="dci">✈️</div><div class="dcb"><div class="dcn">ADS-B 接收机</div><div class="dcd">1090MHz 航空器广播接收</div><div class="dcs"><em>协议：</em>Mode S | <em>刷新：</em>≥1Hz</div></div></div>
+<div class="dc"><div class="dci">🔍</div><div class="dcb"><div class="dcn">通信协议侦测设备</div><div class="dcd">2.4/5.8/900MHz 侦测识别机型</div><div class="dcs"><em>支持：</em>大疆 OCUSYNC | <em>距离：</em>≥10km</div></div></div></div>
 <div class="col">
-<div class="dc"><div class="dci">\U0001f310</div><div class="dcb"><div class="dcn">空管信息接入网关</div><div class="dcd">对接民航+UTM 统一数据接口</div><div class="dcs"><em>接口：</em>REST+WebSocket</div></div></div>
-<div class="dc"><div class="dci">\U0001f5a5\ufe0f</div><div class="dcb"><div class="dcn">态势显示终端</div><div class="dcd">\u226555" 4K 大屏多源叠加</div></div></div>
-<div class="dc"><div class="dci">\U0001f4e1</div><div class="dcb"><div class="dcn">指挥调度终端</div><div class="dcd">威胁确认/资源调度/回溯</div></div></div></div></div></div>
+<div class="dc"><div class="dci">🌐</div><div class="dcb"><div class="dcn">空管信息接入网关</div><div class="dcd">对接民航+UTM 统一数据接口</div><div class="dcs"><em>接口：</em>REST+WebSocket</div></div></div>
+<div class="dc"><div class="dci">🖥️</div><div class="dcb"><div class="dcn">态势显示终端</div><div class="dcd">≥55" 4K 大屏多源叠加</div></div></div>
+<div class="dc"><div class="dci">📡</div><div class="dcb"><div class="dcn">指挥调度终端</div><div class="dcd">威胁确认/资源调度/回溯</div></div></div></div></div></div>
 <div class="slide">
 <div class="sl">INTERCEPTION // DESIGN</div>
-<div class="h2">拦阻截击 \u2014 分系统设计</div>
+<div class="h2">拦阻截击 — 分系统设计</div>
 <div class="sub">软杀伤优先、硬杀伤兜底的分级反制</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="hd-box"><div class="ct">\u26a1 软杀伤（非动能）</div><ul class="ul ul-d"><li><span class="hl">通信干扰</span>：切断遥控链路</li><li><span class="hl">GNSS 诱骗</span>：伪造卫星信号驱离</li><li><span class="hl">协议阻断</span>：飞行终止命令迫降</li></ul></div>
-<div class="hd-box hd-l2"><div class="ct">\U0001f4a5 硬杀伤（动能）</div><ul class="ul ul-d"><li><span class="hl">激光反制</span>：10\u201350kW 1\u20135km</li><li><span class="hl">网捕无人机</span>：捕获网拦截</li><li><span class="hl">FPV 拦截器</span>：高速对撞/伴飞</li></ul></div>
-<div class="hd-box"><div class="ct">\u2699\ufe0f 支撑技术</div><ul class="ul ul-d"><li>0.1\u20136GHz 可编程宽带干扰源</li><li>GPS/北斗/BDS 多星座诱骗</li><li>自适应光学激光跟踪 1mrad</li><li>FPV 视觉+RTK 高速追击</li><li>反制效果行为监测评估</li></ul></div></div>
+<div class="hd-box"><div class="ct">⚡ 软杀伤（非动能）</div><ul class="ul ul-d"><li><span class="hl">通信干扰</span>：切断遥控链路</li><li><span class="hl">GNSS 诱骗</span>：伪造卫星信号驱离</li><li><span class="hl">协议阻断</span>：飞行终止命令迫降</li></ul></div>
+<div class="hd-box hd-l2"><div class="ct">💥 硬杀伤（动能）</div><ul class="ul ul-d"><li><span class="hl">激光反制</span>：10–50kW 1–5km</li><li><span class="hl">网捕无人机</span>：捕获网拦截</li><li><span class="hl">FPV 拦截器</span>：高速对撞/伴飞</li></ul></div>
+<div class="hd-box"><div class="ct">⚙️ 支撑技术</div><ul class="ul ul-d"><li>0.1–6GHz 可编程宽带干扰源</li><li>GPS/北斗/BDS 多星座诱骗</li><li>自适应光学激光跟踪 1mrad</li><li>FPV 视觉+RTK 高速追击</li><li>反制效果行为监测评估</li></ul></div></div>
 <div class="col">
-<div class="hd-box"><div class="ct">\U0001f4e1 反制距离分层</div>
-<table class="tbl"><tr><th>距离</th><th>手段</th><th>场景</th></tr><tr><td>5\u201315km</td><td>预警监测</td><td>早期发现</td></tr><tr><td>3\u20135km</td><td>通信干扰</td><td>先警告后干扰</td></tr><tr><td>1\u20133km</td><td>GNSS 诱骗</td><td>强制驱离</td></tr><tr><td>0.5\u20131km</td><td>激光反制</td><td>高威胁摧毁</td></tr><tr><td>0\u20130.5km</td><td>网捕/FPV</td><td>近距兜底</td></tr></table></div>
-<div class="hd-box hd-l"><div class="ct">\U0001f3af 分级决策流程</div><ul class="ul ul-d"><li>识别\u2192等级评估（1\u20135 级）</li><li>1\u20132 级：通信干扰驱离</li><li>3 级：GNSS 诱骗转向</li><li>4\u20135 级：激光/FPV 拦截</li><li><span class="hl">人工确认</span> 与 <span class="hl">自动执行</span> 双模式</li><li>反制前评估 <span class="hl">附带影响</span></li></ul></div></div></div></div>
+<div class="hd-box"><div class="ct">📡 反制距离分层</div>
+<table class="tbl"><tr><th>距离</th><th>手段</th><th>场景</th></tr><tr><td>5–15km</td><td>预警监测</td><td>早期发现</td></tr><tr><td>3–5km</td><td>通信干扰</td><td>先警告后干扰</td></tr><tr><td>1–3km</td><td>GNSS 诱骗</td><td>强制驱离</td></tr><tr><td>0.5–1km</td><td>激光反制</td><td>高威胁摧毁</td></tr><tr><td>0–0.5km</td><td>网捕/FPV</td><td>近距兜底</td></tr></table></div>
+<div class="hd-box hd-l"><div class="ct">🎯 分级决策流程</div><ul class="ul ul-d"><li>识别→等级评估（1–5 级）</li><li>1–2 级：通信干扰驱离</li><li>3 级：GNSS 诱骗转向</li><li>4–5 级：激光/FPV 拦截</li><li><span class="hl">人工确认</span> 与 <span class="hl">自动执行</span> 双模式</li><li>反制前评估 <span class="hl">附带影响</span></li></ul></div></div></div></div>
 
 <div class="slide">
 <div class="sl">INTERCEPTION // EQUIPMENT</div>
-<div class="h2">拦阻截击 \u2014 关键设备</div>
+<div class="h2">拦阻截击 — 关键设备</div>
 <div class="sub">软硬杀伤核心装备</div>
 <div class="g2" style="flex:1">
 <div class="col">
-<div class="dc"><div class="dci">\U0001f4fb</div><div class="dcb"><div class="dcn">宽带通信干扰机</div><div class="dcd">可编程 0.1\u20136GHz 全频段</div><div class="dcs"><em>功率：</em>50W | <em>调制：</em>AM/FM/跳频跟踪</div></div></div>
-<div class="dc"><div class="dci">\U0001f6f0\ufe0f</div><div class="dcb"><div class="dcn">GNSS 诱骗发射机</div><div class="dcd">GPS/BDS/GLONASS 伪造信号</div><div class="dcs"><em>频段：</em>L1/L2/L5 | <em>功率：</em>10W | <em>\u22653km</em></div></div></div>
-<div class="dc"><div class="dci">\u26a1</div><div class="dcb"><div class="dcn">高能激光反制器</div><div class="dcd">10\u201350kW 连续/脉冲激光</div><div class="dcs"><em>波长：</em>1.06\u03bcm | <em>距离：</em>1\u20135km</div></div></div></div>
+<div class="dc"><div class="dci">📻</div><div class="dcb"><div class="dcn">宽带通信干扰机</div><div class="dcd">可编程 0.1–6GHz 全频段</div><div class="dcs"><em>功率：</em>50W | <em>调制：</em>AM/FM/跳频跟踪</div></div></div>
+<div class="dc"><div class="dci">🛰️</div><div class="dcb"><div class="dcn">GNSS 诱骗发射机</div><div class="dcd">GPS/BDS/GLONASS 伪造信号</div><div class="dcs"><em>频段：</em>L1/L2/L5 | <em>功率：</em>10W | <em>≥3km</em></div></div></div>
+<div class="dc"><div class="dci">⚡</div><div class="dcb"><div class="dcn">高能激光反制器</div><div class="dcd">10–50kW 连续/脉冲激光</div><div class="dcs"><em>波长：</em>1.06μm | <em>距离：</em>1–5km</div></div></div></div>
 <div class="col">
-<div class="dc"><div class="dci">\U0001f578\ufe0f</div><div class="dcb"><div class="dcn">网捕拦截无人机</div><div class="dcd">多旋翼载网拦截器</div><div class="dcs"><em>速度：</em>20m/s | <em>续航：</em>15min | <em>网径：</em>3\u20135m</div></div></div>
-<div class="dc"><div class="dci">\u2708\ufe0f</div><div class="dcb"><div class="dcn">FPV 拦截穿越机</div><div class="dcd">144km/h 高速对撞</div><div class="dcs"><em>续航：</em>8min | <em>控制：</em>数字图传+RTK</div></div></div>
-<div class="dc"><div class="dci">\U0001f3af</div><div class="dcb"><div class="dcn">反制伺服跟踪系统</div><div class="dcd">指向干扰/激光跟踪</div><div class="dcs"><em>精度：</em>0.02\u00b0 | <em>响应：</em>&lt;100ms</div></div></div></div></div></div>
+<div class="dc"><div class="dci">🕸️</div><div class="dcb"><div class="dcn">网捕拦截无人机</div><div class="dcd">多旋翼载网拦截器</div><div class="dcs"><em>速度：</em>20m/s | <em>续航：</em>15min | <em>网径：</em>3–5m</div></div></div>
+<div class="dc"><div class="dci">✈️</div><div class="dcb"><div class="dcn">FPV 拦截穿越机</div><div class="dcd">144km/h 高速对撞</div><div class="dcs"><em>续航：</em>8min | <em>控制：</em>数字图传+RTK</div></div></div>
+<div class="dc"><div class="dci">🎯</div><div class="dcb"><div class="dcn">反制伺服跟踪系统</div><div class="dcd">指向干扰/激光跟踪</div><div class="dcs"><em>精度：</em>0.02° | <em>响应：</em>&lt;100ms</div></div></div></div></div></div>
 <div class="slide">
 <div class="sl">EFFECT</div>
 <div class="h2">预期效果</div>
 <div class="sub">建成后的能力指标与效能评估</div>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px">
 <div class="g3">
-<div class="scard"><div class="scn">\u226520km</div><div class="sct">最大预警距离</div></div>
+<div class="scard"><div class="scn">≥20km</div><div class="sct">最大预警距离</div></div>
 <div class="scard"><div class="scn">&gt;100</div><div class="sct">并行跟踪目标</div></div>
 <div class="scard" style="border-color:var(--ac2)"><div class="scn" style="color:var(--ac2)">&lt;60s</div><div class="sct">全流程响应</div></div></div>
 <div class="g2">
-<div class="hd-box hd-l"><div class="ct">\U0001f4ca 核心效能指标</div><ul class="ul ul-d"><li>探测：\u226520km（RCS\u22650.1m\u00b2）/ \u22653km（RCS\u22650.01m\u00b2）</li><li>识别准确率：\u226595%，\u226510 种机型</li><li>漏警率 &lt;1%，虚警率 &lt;1 次/h</li><li>系统可用度 \u226599.5%，全年无休</li><li>反制成功率 \u226590%（高威胁目标）</li><li>操作：单站 1\u20132 人值守</li></ul></div>
-<div class="hd-box hd-l2"><div class="ct">\U0001f3ed 典型应用场景</div><ul class="ul ul-d"><li><span class="hl">机场净空</span>：跑道 10km 低空警戒</li><li><span class="hl">核电站/油库</span>：固定 24h 监控</li><li><span class="hl">大型活动</span>：临时快速部署</li><li><span class="hl">边境海防</span>：车载机动监控</li><li><span class="hl">军事要地</span>：多站组网态势融合</li><li><span class="hl">城市设施</span>：政府/数据中心/通信枢纽</li></ul></div></div>
+<div class="hd-box hd-l"><div class="ct">📊 核心效能指标</div><ul class="ul ul-d"><li>探测：≥20km（RCS≥0.1m²）/ ≥3km（RCS≥0.01m²）</li><li>识别准确率：≥95%，≥10 种机型</li><li>漏警率 &lt;1%，虚警率 &lt;1 次/h</li><li>系统可用度 ≥99.5%，全年无休</li><li>反制成功率 ≥90%（高威胁目标）</li><li>操作：单站 1–2 人值守</li></ul></div>
+<div class="hd-box hd-l2"><div class="ct">🏭 典型应用场景</div><ul class="ul ul-d"><li><span class="hl">机场净空</span>：跑道 10km 低空警戒</li><li><span class="hl">核电站/油库</span>：固定 24h 监控</li><li><span class="hl">大型活动</span>：临时快速部署</li><li><span class="hl">边境海防</span>：车载机动监控</li><li><span class="hl">军事要地</span>：多站组网态势融合</li><li><span class="hl">城市设施</span>：政府/数据中心/通信枢纽</li></ul></div></div>
 <!-- Crosshair pulse animation from template -->
 <div style="display:flex;justify-content:center;gap:30px;margin-top:4px">
 <div style="text-align:center"><div class="ch"><div class="ch-c"></div></div><div style="font-size:.75rem;color:var(--fg2);margin-top:2px">精准探测锁定</div></div>
@@ -378,21 +378,21 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div style="max-width:650px;margin:0 auto">
 <div class="h2" style="margin-bottom:14px;font-size:1.35rem">系统核心能力总结</div>
 <div class="g2" style="text-align:left;margin-bottom:14px">
-<div class="hd-box" style="border-color:var(--ac)"><div class="ct">\U0001f4e1 探得早</div><ul class="ul ul-d"><li>X 波段相控阵 20km 预警</li><li>360\u00b0 全空域无盲区</li><li>50\u2013100 目标并行处理</li></ul></div>
-<div class="hd-box" style="border-color:var(--ac)"><div class="ct">\U0001f3af 看得清</div><ul class="ul ul-d"><li>双波段光电 \u22655km 识别</li><li>YOLOv8 深度学习分类</li><li>&gt;10 种机型判别</li></ul></div>
-<div class="hd-box" style="border-color:var(--ac2)"><div class="ct">\U0001f310 管得住</div><ul class="ul ul-d"><li>Remote ID+ADS-B 验证</li><li>民航/UTM 数据对接</li><li>合法/非法自动分流</li></ul></div>
-<div class="hd-box" style="border-color:var(--ac2)"><div class="ct">\u2694\ufe0f 打得准</div><ul class="ul ul-d"><li>软杀伤优先硬杀伤兜底</li><li>60s 全流程闭环</li><li>分级决策附带影响可控</li></ul></div></div>
+<div class="hd-box" style="border-color:var(--ac)"><div class="ct">📡 探得早</div><ul class="ul ul-d"><li>X 波段相控阵 20km 预警</li><li>360° 全空域无盲区</li><li>50–100 目标并行处理</li></ul></div>
+<div class="hd-box" style="border-color:var(--ac)"><div class="ct">🎯 看得清</div><ul class="ul ul-d"><li>双波段光电 ≥5km 识别</li><li>YOLOv8 深度学习分类</li><li>&gt;10 种机型判别</li></ul></div>
+<div class="hd-box" style="border-color:var(--ac2)"><div class="ct">🌐 管得住</div><ul class="ul ul-d"><li>Remote ID+ADS-B 验证</li><li>民航/UTM 数据对接</li><li>合法/非法自动分流</li></ul></div>
+<div class="hd-box" style="border-color:var(--ac2)"><div class="ct">⚔️ 打得准</div><ul class="ul ul-d"><li>软杀伤优先硬杀伤兜底</li><li>60s 全流程闭环</li><li>分级决策附带影响可控</li></ul></div></div>
 <div class="hd-box" style="margin-bottom:10px"><div style="font-size:.84rem;color:var(--fg2);line-height:1.45;text-align:center">
-<span class="hl">相控阵雷达</span> 感知 \u00b7 <span class="hl">双波段光电</span> 识别 \u00b7 <span class="hl">空管信息</span> 合法性 \u00b7 <span class="hlo">软硬杀伤</span> 反制<br>
-覆盖 <span class="hl">预警\u2192识别\u2192管理\u2192反制</span> 全链条、<span class="hl">远距\u2192近距</span> 全空域的低空一体化安全防护</div></div>
+<span class="hl">相控阵雷达</span> 感知 · <span class="hl">双波段光电</span> 识别 · <span class="hl">空管信息</span> 合法性 · <span class="hlo">软硬杀伤</span> 反制<br>
+覆盖 <span class="hl">预警→识别→管理→反制</span> 全链条、<span class="hl">远距→近距</span> 全空域的低空一体化安全防护</div></div>
 <div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap">
 <span class="tag">相控阵雷达</span><span class="tag">双波段光电</span><span class="to">多源空管验证</span><span class="tr">分级反制</span><span class="tg">AI 决策</span></div></div></div>
 </div><!-- slides -->
 
 <div class="nav">
-<button class="nb" id="prevBtn" onclick="prevSlide()">\u2190 上一页</button>
+<button class="nb" id="prevBtn" onclick="prevSlide()">← 上一页</button>
 <div class="nc" id="slideCounter">1 / 15</div>
-<button class="nb" id="nextBtn" onclick="nextSlide()">下一页 \u2192</button>
+<button class="nb" id="nextBtn" onclick="nextSlide()">下一页 →</button>
 </div>
 <div class="dots" id="dotNav"></div>
 
