@@ -100,6 +100,32 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .dt.active{background:var(--ac);width:12px;border-radius:2px}
 @media(max-width:1366px){.slide{padding:32px 38px 65px}.g3{grid-template-columns:1fr 1fr}}
 @media(max-width:1024px){.g2,.g3{grid-template-columns:1fr}}
+
+/* DRONE FLY - 无人机飞行 */
+@keyframes droneFly{0%{transform:translate(-100px,0) scaleX(1)}45%{transform:translate(calc(100vw + 100px),0) scaleX(1)}48%{transform:translate(calc(100vw + 100px),0) scaleX(-1)}95%{transform:translate(-100px,0) scaleX(-1)}100%{transform:translate(-100px,0) scaleX(1)}}
+.drone-fly{position:fixed;top:12%;z-index:2;pointer-events:none;animation:droneFly 18s linear infinite;font-size:1.6rem;opacity:0.5}
+.drone-fly2{position:fixed;top:36%;z-index:2;pointer-events:none;animation:droneFly 22s linear infinite;animation-delay:3s;font-size:1.2rem;opacity:0.3}
+.drone-fly3{position:fixed;top:62%;z-index:2;pointer-events:none;animation:droneFly 15s linear infinite;animation-delay:8s;font-size:0.9rem;opacity:0.2}
+
+/* SCAN PULSE - 扫描脉冲 */
+@keyframes scanPulse{0%{opacity:0;transform:scale(0.8)}50%{opacity:0.4;transform:scale(1.2)}100%{opacity:0;transform:scale(1.6)}}
+.scan-pulse{position:absolute;width:100%;height:100%;top:0;left:0;border:2px solid var(--ac);border-radius:50%;animation:scanPulse 1.5s ease-out infinite;opacity:0;pointer-events:none}
+.scan-pulse2{animation-delay:0.5s}.scan-pulse3{animation-delay:1s}
+
+/* FPV INTERCEPT - 拦截对撞 */
+@keyframes fpvIntercept{0%{transform:translate(0,0)}20%{transform:translate(120px,-15px)}40%{transform:translate(240px,-25px)}60%{transform:translate(360px,-30px)}80%{transform:translate(480px,-15px)}100%{transform:translate(600px,0);opacity:0}}
+.fpv-chase{position:absolute;top:30px;left:20px;width:12px;height:12px;border-radius:50%;background:var(--ac2);animation:fpvIntercept 2.2s linear infinite}
+.fpv-chase2{width:10px;height:10px;background:var(--rd);top:28px;animation-delay:0.3s;opacity:0.7}
+.fpv-target{position:absolute;top:28px;right:60px;width:14px;height:14px;border-radius:50%;background:var(--rd);animation:blink 0.4s infinite}
+
+/* TRAIL DOTS - 轨迹拖尾 */
+@keyframes trailFade{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0.2)}}
+.trail{position:absolute;top:30px;width:4px;height:4px;border-radius:50%;background:var(--ac2);animation:trailFade 1s linear forwards;pointer-events:none}
+
+/* ENGAGEMENT - 拦截命中闪光 */
+@keyframes hitFlash{0%{box-shadow:0 0 0 0 rgba(255,68,68,0.8)}50%{box-shadow:0 0 30px 15px rgba(255,68,68,0.4)}100%{box-shadow:0 0 0 0 rgba(255,68,68,0)}}
+.hit{position:absolute;top:26px;right:70px;width:20px;height:20px;border-radius:50%;background:transparent;animation:hitFlash 2s ease-out infinite}
+
 </style>
 </head>
 <body>
@@ -332,6 +358,15 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="sl">INTERCEPTION // DESIGN</div>
 <div class="h2">拦阻截击 — 分系统设计</div>
 <div class="sub">软杀伤优先、硬杀伤兜底的分级反制</div>
+<div class="fpv" style="margin:6px 0;height:70px;position:relative">
+<div class="fpv-target">⚡</div>
+<div class="fpv-chase"></div>
+<div class="fpv-chase fpv-chase2"></div>
+<div class="hit"></div>
+<div style="position:absolute;bottom:2px;left:20px;font-size:.6rem;color:var(--ac2)">FPV 追踪器</div>
+<div style="position:absolute;bottom:2px;right:60px;font-size:.6rem;color:var(--rd)">目标</div>
+<div style="position:absolute;bottom:12px;left:30%;font-size:.55rem;color:var(--fg3)">FPV 拦截：轨迹重合对撞</div>
+</div>
 <div class="g2" style="flex:1">
 <div class="col">
 <div class="hd-box"><div class="ct">⚡ 软杀伤（非动能）</div><ul class="ul ul-d"><li><span class="hl">通信干扰</span>：切断遥控链路</li><li><span class="hl">GNSS 诱骗</span>：伪造卫星信号驱离</li><li><span class="hl">协议阻断</span>：飞行终止命令迫降</li></ul></div>
